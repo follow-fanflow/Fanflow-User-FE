@@ -4,11 +4,8 @@ export const GlobalStyle = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
-        font-family: "SOYO-Maple";
+        font-family: "SOYOMapleBoldTTF";
         user-select: none;
-        ::-webkit-scrollbar {
-            width: 0px;
-        }
     }
 
     input, textarea, button {

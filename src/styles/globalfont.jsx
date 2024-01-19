@@ -1,19 +1,9 @@
 import { createGlobalStyle } from "styled-components";
-import fontR from "../asset/font/SOYO Maple Regular.ttf"
-import fontB from "../asset/font/SOYO Maple Bold.ttf";
 
 export const GlobalFont = createGlobalStyle`
     @font-face {
-        font-family: "SOYO-Maple";
-        src: local("SOYO Maple Regular"),
-        url(${fontR}) format('truetype');
-        font-weight: 400;
-        font-style: normal;
-    }
-    @font-face {
-        font-family: "SOYO-Maple";
-        src: local("SOYO Maple Bold"), 
-        url(${fontB}) format('truetype');
+        font-family: 'SOYOMapleBoldTTF';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/SOYOMapleBoldTTF.woff2') format('woff2');
         font-weight: 700;
         font-style: normal;
     }
