@@ -1,3 +1,3 @@
-// 파일 내용...
-
-export { };
+export function SignUp() {
+    return <></>;
+}
