@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import { Celender } from "../assets/imgs/Icons/celender";
 import { GroupIcon } from "../assets/imgs/Icons/peopleGroup";
 import { theme } from "../styles/theme";
@@ -6,67 +8,67 @@ import textLogo from "../assets/imgs/textLogo.svg";
 import { NoteBook } from "../assets/imgs/Icons/noteBook";
 import { MapIcon } from "../assets/imgs/Icons/mapIcon";
 import profile from "../assets/imgs/profile.svg";
-import { useNavigate } from "react-router-dom";
 
 interface NavProps {
-  selectedNav: "introduction" | "fanlog" | "schedule" | "map";
   to: string;
+  children: React.ReactNode;
 }
 
 const NavWrapper = styled.div<{ selected: boolean }>`
-  color: ${({ selected }) =>
-    selected ? theme.color.black_1 : theme.color.three};
+  color: ${({ selected }) => (selected ? theme.color.three : theme.color.black_1)};
   display: flex;
   gap: 4px;
   align-items: center;
   font-size: 14px;
+  cursor: pointer;
 
   &:hover {
-    color: ${({ theme }) => theme.color.one};
+    color: ${theme.color.three};
   }
 `;
 
-const Nav = ({
-  selectedNav,
-  to,
-  children,
-}: React.PropsWithChildren<NavProps>) => {
+const Nav = ({ to, children }: NavProps) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const [selected, setSelected] = useState(false);
+
+  useEffect(() => {
+    setSelected(location.pathname.includes(to));
+  }, [location.pathname, to]);
 
   const handleClick = () => {
     navigate(to);
   };
 
   return (
-    <NavWrapper selected={selectedNav === to} onClick={handleClick}>
+    <NavWrapper selected={selected} onClick={handleClick}>
       {children}
     </NavWrapper>
   );
 };
-interface HeaderProps {
-  selectedNav: "introduction" | "fanlog" | "schedule" | "map";
-}
 
-export const Header = ({ selectedNav }: HeaderProps) => {
+interface HeaderProps { }
+
+export const Header: React.FC<HeaderProps> = () => {
   return (
     <>
       <Layout>
         <Left>
           <img src={textLogo} alt="" />
           <NavWrap>
-            <Nav selectedNav={selectedNav} to="/introduce">
+            <Nav to="/introduce">
               <GroupIcon />
               소개
             </Nav>
-            <Nav selectedNav={selectedNav} to="/fanlog">
+            <Nav to="/fanlog">
               <NoteBook />
               팬로그
             </Nav>
-            <Nav selectedNav={selectedNav} to="/schedule">
+            <Nav to="/schedule">
               <Celender />
               스케줄
             </Nav>
-            <Nav selectedNav={selectedNav} to="/map">
+            <Nav to="/map">
               <MapIcon />
               생카지도
             </Nav>
