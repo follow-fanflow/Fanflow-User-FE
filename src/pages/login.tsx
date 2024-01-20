@@ -1,8 +1,17 @@
 import styled from "styled-components";
 import Logoimg from "../assets/imgs/logo1.svg";
-// import { theme } from "../styles/theme";
+import PersonIcon from "../assets/imgs/PersonIcon.svg";
+import EyeCloseIcon from "../assets/imgs/closeIcon.svg";
+import EyeOpenIcon from "../assets/imgs/eyeIcon.svg";
+import React, { useState } from "react";
 
 export function Login() {
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePassword = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <Wrapper>
             <CommentWrapper>
@@ -15,24 +24,86 @@ export function Login() {
                 <Logo src={Logoimg}></Logo>
                 <Title>로그인</Title>
                 <InputWrapper>
-                    <Id ></Id>
+                    <IdWrapper>
+                        <IdIcon src={PersonIcon}></IdIcon>
+                        <IdInput placeholder="아이디"></IdInput>
+                    </IdWrapper>
+                    <PwWrapper>
+                        <PwInput
+                            type={showPassword ? "text" : "password"}
+                            placeholder="비밀번호"
+                        />
+                        <PwIcon src={showPassword ? EyeOpenIcon : EyeCloseIcon} onClick={handleTogglePassword} />
+                    </PwWrapper>
                 </InputWrapper>
             </LoginWrapper>
-            {/* <Ani theme={theme}></Ani> */}
         </Wrapper>
     );
 }
 
-const Id = styled.input``;
+const PwIcon = styled.img`
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+`;
+
+const PwWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative; /* relative 추가 */
+`;
+
+const PwInput = styled.input`
+  border-radius: 5px;
+  border: 1.5px solid ${({ theme }) => theme.color.gray__1};
+  width: 230px;
+  height: 30px;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 20px;
+  &:focus {
+    border: 1.5px solid black;
+    outline: none;
+  }
+`;
+
+const IdWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  position: relative;
+`;
+
+const IdIcon = styled.img`
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+`;
+
+const IdInput = styled.input`
+  border-radius: 5px;
+  border: 1.5px solid ${({ theme }) => theme.color.gray__1};
+  width: 230px;
+  height: 30px;
+  position: relative;
+  padding-left: 30px;
+  &:focus {
+    border: 1.5px solid black;
+    outline: none;
+  }
+`;
 
 const InputWrapper = styled.div`
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `;
 
 const Title = styled.div`
-    font-size: 26px;
+  font-size: 23px;
 `;
 
 const Logo = styled.img`
@@ -42,6 +113,8 @@ const Logo = styled.img`
 const LoginWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 400px;
   height: 480px;
   border: solid ${({ theme }) => theme.color.gray__1} 1px;
@@ -50,6 +123,7 @@ const LoginWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+
 const Name = styled.div``;
 const Content = styled.div``;
 
@@ -72,9 +146,3 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
 `;
-
-// const Ani = styled.div`
-//     width: 30px;
-//     height: 30px;
-//     background-color: ${({ theme }) => theme.color.two};
-// `;
