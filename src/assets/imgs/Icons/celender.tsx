@@ -1,6 +1,6 @@
 import { Iconprops } from "../../../IconProps";
 
-export const Icon = ({ fill = "currentColor" }: Iconprops) => {
+export const Celender = ({ fill = "currentColor" }: Iconprops) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
