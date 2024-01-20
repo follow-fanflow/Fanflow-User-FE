@@ -6,6 +6,7 @@ import { SearchCafe } from "../pages/searchCafe";
 import { SearchSchedule } from "../pages/searchSchedule";
 import { Fanlog } from "../pages/fanlog";
 import { IdolList } from "../pages/idolList";
+import { Home } from "../pages/home";
 
 export const Router = () => {
   return (
@@ -18,6 +19,7 @@ export const Router = () => {
         <Route path="/schedule" element={<SearchSchedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
         <Route path="/introduce" element={<IdolList />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   );

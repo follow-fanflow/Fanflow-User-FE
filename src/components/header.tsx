@@ -11,11 +11,12 @@ import profile from "../assets/imgs/profile.svg";
 
 interface NavProps {
   to: string;
-  children: React.ReactNode;
+  children: any;
 }
 
 const NavWrapper = styled.div<{ selected: boolean }>`
-  color: ${({ selected }) => (selected ? theme.color.three : theme.color.black_1)};
+  color: ${({ selected }) =>
+    selected ? theme.color.three : theme.color.black_1};
   display: flex;
   gap: 4px;
   align-items: center;
@@ -47,14 +48,14 @@ const Nav = ({ to, children }: NavProps) => {
   );
 };
 
-interface HeaderProps { }
-
-export const Header: React.FC<HeaderProps> = () => {
+export const Header = () => {
   return (
     <>
       <Layout>
         <Left>
-          <img src={textLogo} alt="" />
+          <Nav to="/">
+            <img src={textLogo} alt="" />
+          </Nav>
           <NavWrap>
             <Nav to="/introduce">
               <GroupIcon />
