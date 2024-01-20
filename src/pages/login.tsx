@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Logoimg from "../assets/imgs/logo1.svg";
 import PersonIcon from "../assets/imgs/PersonIcon.svg";
 import EyeCloseIcon from "../assets/imgs/closeIcon.svg";
-import EyeOpenIcon from "../assets/imgs/eyeIcon.svg";
+import EyeOpenIcon from "../assets/imgs/openIcon.svg";
 import React, { useState } from "react";
 
 export function Login() {
