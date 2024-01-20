@@ -3,6 +3,7 @@ import Logoimg from "../assets/imgs/logo1.svg";
 // import { theme } from "../styles/theme";
 
 export function Login() {
+<<<<<<< Updated upstream
   return (
     <Wrapper>
       <CommentWrapper>
@@ -19,6 +20,41 @@ export function Login() {
   );
 }
 
+=======
+    return (
+        <Wrapper>
+            <CommentWrapper>
+                <Comment>
+                    <Name></Name>
+                    <Content></Content>
+                </Comment>
+            </CommentWrapper>
+            <LoginWrapper>
+                <Logo src={Logoimg}></Logo>
+                <Title>로그인</Title>
+                <InputWrapper>
+                    <Id ></Id>
+                </InputWrapper>
+            </LoginWrapper>
+            {/* <Ani theme={theme}></Ani> */}
+        </Wrapper>
+    );
+}
+
+const Id = styled.input``;
+
+const InputWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+`;
+
+const Title = styled.div`
+    font-size: 26px;
+`;
+
+
+>>>>>>> Stashed changes
 const Logo = styled.img`
   width: 50px;
 `;
