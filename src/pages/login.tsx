@@ -3,24 +3,6 @@ import Logoimg from "../assets/imgs/logo1.svg";
 // import { theme } from "../styles/theme";
 
 export function Login() {
-<<<<<<< Updated upstream
-  return (
-    <Wrapper>
-      <CommentWrapper>
-        <Comment>
-          <Name></Name>
-          <Content></Content>
-        </Comment>
-      </CommentWrapper>
-      <LoginWrapper>
-        <Logo src={Logoimg}></Logo>
-      </LoginWrapper>
-      {/* <Ani theme={theme}></Ani> */}
-    </Wrapper>
-  );
-}
-
-=======
     return (
         <Wrapper>
             <CommentWrapper>
@@ -53,8 +35,6 @@ const Title = styled.div`
     font-size: 26px;
 `;
 
-
->>>>>>> Stashed changes
 const Logo = styled.img`
   width: 50px;
 `;
