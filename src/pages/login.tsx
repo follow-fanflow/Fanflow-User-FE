@@ -190,11 +190,6 @@ const LoginWrapper = styled.div`
   align-items: center;
 `;
 
-const Comment = styled.div`
-  display: flex;
-  flex-direction: column;
-`;
-
 const CommentWrapper = styled.div`
   display: flex;
   flex-direction: column;

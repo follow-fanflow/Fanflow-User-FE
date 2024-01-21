@@ -8,6 +8,7 @@ import { Fanlog } from "../pages/fanlog";
 import { IdolList } from "../pages/idolList";
 import { Home } from "../pages/home";
 
+
 export const Router = () => {
   return (
     <BrowserRouter>

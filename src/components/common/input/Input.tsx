@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import EyesOpen from "../../../assets/imgs/eyeIcon.svg";
 import EyesClose from "../../../assets/imgs/closeIcon.svg";
 import styled from "styled-components";
-import { theme } from "../../../styles/theme";
 
 interface InputProps {
   error?: boolean;
