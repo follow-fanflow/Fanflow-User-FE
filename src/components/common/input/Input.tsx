@@ -16,7 +16,7 @@ interface InputProps {
   onFocus?: () => void;
 }
 
-//사용방법<Inputplaceholder="문자열" type="password or type" width="300px" height="40px" value={값} onChange={함수} onFocus={포커스함수}/>
+//사용방법<Inputplaceholder="문자열" type="password or text" width="300px" height="40px" value={값} onChange={함수} onFocus={포커스함수}/>
 export const Input = ({
   error = false,
   bottomMessage,
@@ -32,7 +32,7 @@ export const Input = ({
   const [showOpen, setShowOpen] = useState<boolean>(false);
 
   return (
-    <Container width={width} height={height}>
+    <Container style={{ width, height }}>
       <Label htmlFor={label}>{label}</Label>
       <InputWrap>
         <LInput
@@ -62,9 +62,8 @@ export const Input = ({
 const Container = styled.div<{ height?: string; width?: string }>`
   display: flex;
   flex-direction: column;
-  width: ${({ width }) => width || "100%"};
-  height: ${({ height }) => height || "100%"};
   gap: 4px;
+  box-sizing: border-box;
 `;
 
 const Label = styled.label`
@@ -76,6 +75,9 @@ const InputWrap = styled.div`
 `;
 
 const LInput = styled.input<{ $password?: string }>`
+  padding: 8px 4px;
+  width: ${({ width }) => width || "100%"};
+  height: ${({ height }) => height || "100%"};
   border: 1px solid ${({ theme }) => theme.color.gray__1};
   border-radius: 5px;
 `;

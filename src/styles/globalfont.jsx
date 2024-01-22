@@ -7,4 +7,4 @@ export const GlobalFont = createGlobalStyle`
         font-weight: 700;
         font-style: normal;
     }
-`
+`;

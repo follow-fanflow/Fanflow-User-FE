@@ -7,6 +7,7 @@ import { SearchSchedule } from "../pages/searchSchedule";
 import { Fanlog } from "../pages/fanlog";
 import { IdolList } from "../pages/idolList";
 import { Home } from "../pages/home";
+import { Input } from "../components/common/input/Input";
 
 
 export const Router = () => {
@@ -21,6 +22,7 @@ export const Router = () => {
         <Route path="/fanlog" element={<Fanlog />} />
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/" element={<Home />} />
+        <Route path="/input" element={<Input />} />
       </Routes>
     </BrowserRouter>
   );
