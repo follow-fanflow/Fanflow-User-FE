@@ -1,6 +1,5 @@
 import React from "react";
 import { styled } from "styled-components";
-import { theme } from "../../styles/theme";
 
 export const Speech = ({ messege1, messege2, messege3 }) => {
     return (
