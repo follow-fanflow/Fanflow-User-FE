@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     input, textarea, button {
-        // order: none;
+        border: none;
         outline: none;
         resize: none;
     }

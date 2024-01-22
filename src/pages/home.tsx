@@ -31,14 +31,6 @@ export function Home() {
           <Highlight>필수</Highlight>덕질 사이트
         </Text>
       </Back>
-      <Input
-        width="100px"
-        height="100px"
-        type="password"
-        value={"dks"}
-        onChange={handleFocus}
-        placeholder={"qlal"}
-      />
     </>
   );
 }
