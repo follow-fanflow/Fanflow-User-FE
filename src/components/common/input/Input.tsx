@@ -3,6 +3,10 @@ import EyesOpen from "../../../assets/imgs/eyeIcon.svg";
 import EyesClose from "../../../assets/imgs/closeIcon.svg";
 import styled from "styled-components";
 
+//사용법 1) <Input placeholder="s" onChange={handleFocus} />
+//사용법 2)<Input type="password" onChange={handleBlur} onFocus={handleFocus} placeholder="qlal" />
+//사용법 3)<Input type="icon" placeholder="test" onChange={handleBlur} Icon={<img src={search} or Icon={people} />}/>
+
 interface InputProps {
   error?: boolean;
   bottomMessage?: string;
@@ -10,12 +14,12 @@ interface InputProps {
   placeholder?: string;
   type?: string;
   width?: string;
-  value: string;
+  value?: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
+  Icon?: React.ReactNode;
 }
 
-//사용방법<Inputplaceholder="문자열" type="password or text" width="300px" value={값} onChange={함수} onFocus={포커스함수}/>
 export const Input = ({
   error = false,
   bottomMessage,
@@ -26,6 +30,7 @@ export const Input = ({
   value,
   onChange,
   onFocus,
+  Icon,
 }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
   const [showOpen, setShowOpen] = useState<boolean>(false);
 
@@ -33,6 +38,7 @@ export const Input = ({
     <Container style={{ width }}>
       <Label htmlFor={label}>{label}</Label>
       <InputWrap>
+        {type === "icon" && <Icons>{Icon}</Icons>}
         <LInput
           id={label}
           type={type === "password" ? (showOpen ? "text" : "password") : type}
@@ -88,6 +94,14 @@ const LInput = styled.input<{ $password?: string }>`
 const Eyes = styled.div`
   cursor: pointer;
   width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const Icons = styled.div`
+  cursor: pointer;
+  width: 30px;
   display: flex;
   justify-content: center;
   align-items: center;
