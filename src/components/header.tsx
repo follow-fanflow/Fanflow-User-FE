@@ -50,7 +50,7 @@ const Nav = ({ to, children }: NavProps) => {
 
 export const Header = () => {
   return (
-    <>
+    <Position>
       <Layout>
         <Left>
           <Nav to="/">
@@ -77,9 +77,16 @@ export const Header = () => {
         </Left>
         <img src={profile} alt="" />
       </Layout>
-    </>
+    </Position>
   );
 };
+
+const Position = styled.div`
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: ${({ theme }) => theme.color.white};
+`;
 
 const Layout = styled.div`
   padding: 20px 28px;
