@@ -82,6 +82,7 @@ export const Header = () => {
 };
 
 const Position = styled.div`
+  z-index: 10;
   width: 100%;
   position: fixed;
   top: 0;
