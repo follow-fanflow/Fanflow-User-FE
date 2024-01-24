@@ -6,6 +6,8 @@ import search from "../assets/imgs/search.svg";
 import { Input } from "../components/common/input/Input";
 import { Header } from "../components/header";
 import { Speech } from "../components/common/home/speeechbubble";
+import { Circle } from "../components/common/home/circle";
+import Mac from "../assets/imgs/Mac.svg";
 
 export function Home() {
   return (
@@ -37,6 +39,49 @@ export function Home() {
           </SpeechBubble>
         </Roude>
       </Back>
+      <Second>
+        <Circle
+          title="아이돌 소개"
+          detail="모든 아이돌을 모았다. 케이팝 아이돌을 전부 모아놨어요"
+          color={theme.color.zero}
+        />
+        <Hr />
+        <Circle
+          title="스케줄"
+          detail="공식,비공식 스케줄을 월별로 볼 수 있어요!"
+          color={theme.color.one}
+        />
+        <Hr />
+        <Circle
+          title="팬로그"
+          detail="당신의 소중한 추억을 남겨보세요!"
+          color={theme.color.two}
+        />
+        <Hr />
+        <Circle
+          title="생카지도"
+          detail="팬들이 주최한 생일카페를 지도에 모아봤어요!"
+          color={theme.color.three}
+        />
+      </Second>
+      <IntroduceWarp>
+        <Introduce>
+          <img src={Mac} alt="" />
+          tjtoro
+        </Introduce>
+        <Introduce>
+          <img src={Mac} alt="" />
+          tjtoro
+        </Introduce>
+        <Introduce>
+          <img src={Mac} alt="" />
+          tjtoro
+        </Introduce>
+        <Introduce>
+          <img src={Mac} alt="" />
+          tjtoro
+        </Introduce>
+      </IntroduceWarp>
     </>
   );
 }
@@ -82,3 +127,31 @@ const Highlight = styled.p`
 const Text = styled.div`
   display: flex;
 `;
+
+const Second = styled.div`
+  background-color: ${({ theme }) => theme.color.gray0};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 900px;
+`;
+
+const Hr = styled.div`
+  border-top: 1px solid;
+  width: 140px;
+`;
+
+const IntroduceWarp = styled.div`
+  :nth-child(2n) {
+    background-color: ${({ theme }) => theme.color.gray0};
+  }
+`;
+
+const Introduce = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 180px 234px;
+`;
+
+const Title = styled.p``;

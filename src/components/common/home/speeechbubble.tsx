@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { BoxShadow } from "../../../styles/theme";
 
 interface SpeechProps {
   detail: string;
@@ -27,6 +28,7 @@ const Square = styled.div<{ backgroundColor: string }>`
   background-color: ${({ backgroundColor }) => backgroundColor};
   font-size: 20px;
   color: ${({ theme }) => theme.color.white};
+  box-shadow: ${BoxShadow};
 `;
 
 const Triangle = styled.div<{ backgroundColor: string }>`

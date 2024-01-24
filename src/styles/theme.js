@@ -11,6 +11,7 @@ const color = {
   red: "#FF0000",
   green_3: "#71B971",
   green: "#3E9D3E",
+  gray0: "#f8f8f8",
   gray_1: "#EEEEEE",
   gray: "#D9D9D9",
   gray__1: "#ABABAB", // == gray+1
@@ -21,3 +22,5 @@ const color = {
 export const theme = {
   color,
 };
+
+export const BoxShadow = "2px 2px 7px 2px rgba(0, 0, 0, 0.25)";
