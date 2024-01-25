@@ -8,6 +8,8 @@ import { Fanlog } from "../pages/fanlog";
 import { IdolList } from "../pages/idolList";
 import { Home } from "../pages/home";
 import { Input } from "../components/common/input/Input";
+import { ShowCafe } from "../pages/showCafe";
+import Map from "../components/bitrthdayCafe/map";
 
 
 export const Router = () => {
@@ -18,11 +20,13 @@ export const Router = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/header" element={<Header />} />
         <Route path="/map" element={<SearchCafe />} />
+        <Route path="/map/show" element={<ShowCafe />}></Route>
         <Route path="/schedule" element={<SearchSchedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/" element={<Home />} />
         <Route path="/input" element={<Input />} />
+        <Route path="/mapApi" element={<Map />} />
       </Routes>
     </BrowserRouter>
   );
