@@ -10,6 +10,7 @@ import { Home } from "../pages/home";
 import { Input } from "../components/common/input/Input";
 import { ShowCafe } from "../pages/showCafe";
 import Map from "../components/bitrthdayCafe/map";
+import { Footer } from "../components/common/home/footer";
 
 
 export const Router = () => {
@@ -27,6 +28,7 @@ export const Router = () => {
         <Route path="/" element={<Home />} />
         <Route path="/input" element={<Input />} />
         <Route path="/mapApi" element={<Map />} />
+        <Route path="/footer" element={<Footer />} />
       </Routes>
     </BrowserRouter>
   );

@@ -25,7 +25,7 @@ export const Footer = () => {
 const Text = styled.div`
     font-size: 11px;
     color: ${({ theme }) => theme.color.white};
-    margin-top: 8px;
+    margin-top: px;
 `;
 
 const LayoutTwo = styled.div`
