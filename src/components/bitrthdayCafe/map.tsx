@@ -3,7 +3,6 @@ import { useEffect } from "react";
 declare global {
     interface Window {
         kakao: any;
-        clickedMarker: any;
     }
 }
 
@@ -31,19 +30,6 @@ function Map() {
                 });
 
                 marker.setMap(map);
-
-                window.kakao.maps.event.addListener(map, 'click', function (mouseEvent: any) {
-                    const clickedLatLng = mouseEvent.latLng;
-
-                    marker.setMap(null);
-
-                    const newMarker = new window.kakao.maps.Marker({
-                        map: map,
-                        position: clickedLatLng,
-                    })
-
-                    window.clickedMarker = newMarker;
-                })
             });
         };
 
