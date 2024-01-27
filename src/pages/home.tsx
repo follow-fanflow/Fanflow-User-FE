@@ -8,6 +8,7 @@ import { Header } from "../components/header";
 import { Speech } from "../components/common/home/speeechbubble";
 import { Circle } from "../components/common/home/circle";
 import Mac from "../assets/imgs/Mac.svg";
+import { Footer } from "../components/common/home/footer";
 
 export function Home() {
   return (
@@ -82,6 +83,7 @@ export function Home() {
           tjtoro
         </Introduce>
       </IntroduceWarp>
+      <Footer />
     </>
   );
 }

@@ -4,7 +4,7 @@ import FooterIcon from "../../../assets/imgs/footerIcons.svg";
 
 export const Footer = () => {
     return (
-        <Position>
+        <Wrapper>
             <LayoutOne>
                 <img src={TextLogo} style={{ width: "130px" }}></img>
                 <Line></Line>
@@ -18,14 +18,14 @@ export const Footer = () => {
                 <img src={FooterIcon}></img>
                 <Text>copyright © 2023.fanflow.All rights reserved.</Text>
             </LayoutTwo>
-        </Position>
+        </Wrapper>
     );
 };
 
 const Text = styled.div`
     font-size: 11px;
     color: ${({ theme }) => theme.color.white};
-    margin-top: px;
+    margin-top: 7px;
 `;
 
 const LayoutTwo = styled.div`
@@ -55,7 +55,7 @@ const Line = styled.div`
     background-color: ${({ theme }) => theme.color.white};
 `;
 
-const Position = styled.div`
+const Wrapper = styled.div`
     width: 100%;
     height: 102px;
     background-color: ${({ theme }) => theme.color.zero};

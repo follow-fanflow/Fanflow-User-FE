@@ -11,6 +11,7 @@ import { Input } from "../components/common/input/Input";
 import { ShowCafe } from "../pages/showCafe";
 import Map from "../components/bitrthdayCafe/map";
 import { Footer } from "../components/common/home/footer";
+import { Circle_2 } from "../components/introduceIdol/circle2";
 
 
 export const Router = () => {
@@ -29,6 +30,7 @@ export const Router = () => {
         <Route path="/input" element={<Input />} />
         <Route path="/mapApi" element={<Map />} />
         <Route path="/footer" element={<Footer />} />
+        <Route path="/circle_2" element={<Circle_2 />} />
       </Routes>
     </BrowserRouter>
   );
