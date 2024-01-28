@@ -4,13 +4,15 @@ import { Header } from "../components/header";
 
 export function IdolList() {
     return (
-        <Wrapper>
+        <>
             <Header />
-            <div>header</div>
-        </Wrapper>
+            <Wrapper>
+                {/* circle2 컴포넌트 적용 -> 그룹 리스트 */}
+            </Wrapper>
+        </>
     );
 }
 
 const Wrapper = styled.div`
-  /* 여기에 필요한 스타일을 추가하세요 */
+  display: flex;
 `;
