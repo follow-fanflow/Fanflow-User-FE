@@ -18,7 +18,12 @@ export function Fanlog() {
       </Wrapper>
       <Warp>
         <Search>
-          <Button content="작성하기" width={154} height={33} />
+          <Button
+            content="작성하기"
+            width={154}
+            height={33}
+            to="/fanlog/write"
+          />
         </Search>
         <LogWarp>
           <Thumbnail
