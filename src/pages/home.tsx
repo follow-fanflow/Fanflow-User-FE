@@ -68,21 +68,51 @@ export function Home() {
       <IntroduceWarp>
         <Introduce>
           <img src={Mac} alt="" />
-          tjtoro
+          <Exwarp>
+            <Title>케이팝 아이돌 전부 모였다</Title>
+            <Ex>
+              아직 최애를 고르지 못했다면, 더 알고싶다면,
+              <br /> 팬플로우에서 더 자세히 알아가보세요
+            </Ex>
+          </Exwarp>
+        </Introduce>
+        <Introduce>
+          <Exwarp>
+            <Title>스케줄 완벽 준비</Title>
+            <Ex>
+              공식스케줄부터 비공식 스케줄까지
+              <br />
+              아이돌의 활동 일정을 사전에 파악하여
+              <br />
+              아이돌과 더 가까워지는 기회!!
+            </Ex>
+          </Exwarp>
+          <img src={Mac} alt="" />
         </Introduce>
         <Introduce>
           <img src={Mac} alt="" />
-          tjtoro
+          <Exwarp>
+            <Title>놓치기 아쉬운 순간들을 기록하자</Title>
+            <Ex>
+              자신의 아이돌 관련 경험, 감정, 추억 등을 쉽고 빠르게
+              <br />
+              기록하고 공유하는 공간!!
+            </Ex>
+          </Exwarp>
         </Introduce>
         <Introduce>
+          <Exwarp>
+            <Title>생일 카페 지도까지!</Title>
+            <Ex>
+              매번 생일카페 리스트만들고 찾기 어려우셨죠?
+              <br />
+              팬플로우에선 생일카페지도까지 준비해놨어요
+            </Ex>
+          </Exwarp>
           <img src={Mac} alt="" />
-          tjtoro
-        </Introduce>
-        <Introduce>
-          <img src={Mac} alt="" />
-          tjtoro
         </Introduce>
       </IntroduceWarp>
+      <Last></Last>
       <Footer />
     </>
   );
@@ -141,6 +171,7 @@ const Second = styled.div`
 const Hr = styled.div`
   border-top: 1px solid;
   width: 140px;
+  color: ${({ theme }) => theme.color.gray__1};
 `;
 
 const IntroduceWarp = styled.div`
@@ -151,9 +182,31 @@ const IntroduceWarp = styled.div`
 
 const Introduce = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
-  padding: 180px 234px;
+  padding: 180px 0px;
 `;
 
-const Title = styled.p``;
+const Exwarp = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.p`
+  font-size: 60px;
+`;
+
+const Ex = styled.p`
+  font-size: 24px;
+`;
+
+const Last = styled.div`
+  height: 800px;
+  background: linear-gradient(
+    180deg,
+    #fff1f1 0%,
+    rgba(255, 226, 226, 0.85) 36.5%,
+    rgba(255, 187, 187, 0.83) 71.5%,
+    rgba(255, 102, 102, 0.7) 100%
+  );
+`;
