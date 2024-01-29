@@ -59,7 +59,7 @@ export function SignUp() {
               />
             </InputWarp>
           </Elements>
-          <Button content="회원가입" width={105} height={33} />
+          <Button content="회원가입" width={105} height={33} to="/login" />
         </SignWarp>
       </Sign>
       <ImgWarp>
