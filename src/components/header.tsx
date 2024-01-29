@@ -75,7 +75,9 @@ export const Header = () => {
             </Nav>
           </NavWrap>
         </Left>
-        <img src={profile} alt="" />
+        <Nav to="/profile">
+          <img src={profile} alt="" />
+        </Nav>
       </Layout>
     </Position>
   );

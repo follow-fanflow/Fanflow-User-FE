@@ -1,35 +1,87 @@
-import React, { FC, useState, CSSProperties } from 'react';
+// Button.tsx
+import React, { ReactNode, useState } from 'react';
+import { Link } from 'react-router-dom';
 
+
+// 사용방법:<Button to="/route" width={number} height={number} backgroundColor="" hoverColor="" content="Go to Route"/>
 interface ButtonProps {
+    to?: string;
     width?: number;
     height?: number;
-    content: string;
-    buttonStyle?: CSSProperties;
+    backgroundColor?: string;
     hoverColor?: string;
+    onClick?: () => void;
+    content?: string;
+    buttonStyle?: React.CSSProperties;
 }
-// 사용법: <Button width={weight} height={height} content="버튼 내용" buttonStyle={{ backgroundColor: '배경 색상', color: '텍스트 색상' }} hoverColor="hover시 색상"/>
-const Button: FC<ButtonProps> = ({ width, height, content, buttonStyle, hoverColor }) => {
+
+const Button: React.FC<ButtonProps> = ({
+    to,
+    width = 100,
+    height = 40,
+    backgroundColor = '#FFA495',
+    hoverColor = '#FF7878',
+    onClick,
+    content,
+    buttonStyle,
+}) => {
     const [isHovered, setIsHovered] = useState(false);
 
-    const defaultButtonStyle: CSSProperties = {
-        width: width ? `${width}px` : 'auto',
-        height: height ? `${height}px` : 'auto',
-        backgroundColor: isHovered ? (hoverColor || `#FFA495`) : (buttonStyle?.backgroundColor || `#FFC6C6`),
-        borderRadius: '5px',
+    const defaultButtonStyle: React.CSSProperties = {
+        width: `${width}px`,
+        height: `${height}px`,
+        backgroundColor: isHovered ? hoverColor : backgroundColor,
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
         cursor: 'pointer',
-        transition: 'background-color 0.3s ease-in-out',
-        color: buttonStyle?.color || '#ffffff',
+        border: 'none',
+        borderRadius: '4px',
+        outline: 'none',
+        transition: 'background-color 0.3s ease',
+        color: 'white'
     };
 
-    return (
-        <button
-            style={{ ...defaultButtonStyle, ...buttonStyle }}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            {content}
-        </button>
-    );
+    const mergedButtonStyle = {
+        ...defaultButtonStyle,
+        ...buttonStyle,
+    };
+
+    const handleHover = () => {
+        setIsHovered(true);
+    };
+
+    const handleLeave = () => {
+        setIsHovered(false);
+    };
+
+    if (to) {
+        return (
+            <Link to={to} style={{ textDecoration: 'none' }}>
+                <button
+                    style={mergedButtonStyle}
+                    onClick={onClick}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleLeave}
+                >
+                    {content}
+                </button>
+            </Link>
+        );
+    }
+
+    return null;
+
+    // return (
+    //     <button
+    //         style={mergedButtonStyle}
+    //         onClick={onClick}
+    //         onMouseEnter={handleHover}
+    //         onMouseLeave={handleLeave}
+    //     >
+    //         {content}
+    //     </button>
+    // );
 };
 
 export default Button;
