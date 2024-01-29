@@ -16,7 +16,8 @@ import { Circles } from "../components/introduceIdol/circle2";
 import { IntroduceComp } from "../components/introduceIdol/introduceComp";
 import { Profile } from "../pages/Profile";
 import { SelectTag } from "../components/common/tag/selectTag";
-
+import { FanlogDetail } from "../pages/fanlogDetail";
+import { WriteLog } from "../pages/writeFanlog";
 
 export const Router = () => {
   return (
@@ -26,9 +27,11 @@ export const Router = () => {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/header" element={<Header />} />
         <Route path="/map" element={<SearchCafe />} />
-        <Route path="/map/show" element={<ShowCafe />}></Route>
+        <Route path="/map/show" element={<ShowCafe />} />
         <Route path="/schedule" element={<SearchSchedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
+        <Route path="/fanlog/detail" element={<FanlogDetail />} />
+        <Route path="/fanlog/write" element={<WriteLog />} />
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/introduce/group" element={<Introduce />} />
         <Route path="/" element={<Home />} />
