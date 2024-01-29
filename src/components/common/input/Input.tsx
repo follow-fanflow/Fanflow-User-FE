@@ -53,9 +53,9 @@ export const Input = ({
           {type === "password" && (
             <Eyes onClick={() => setShowOpen(!showOpen)}>
               {showOpen ? (
-                <img src={EyesClose} alt="Eyes Close" />
+                <img src={EyesOpen} alt="Eyes Close" />
               ) : (
-                <img src={EyesOpen} alt="Eyes Open" />
+                <img src={EyesClose} alt="Eyes Open" />
               )}
             </Eyes>
           )}
