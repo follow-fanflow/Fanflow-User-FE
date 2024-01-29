@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 //사용법 1) <Input placeholder="s" onChange={handleFocus} />
 //사용법 2)<Input type="password" onChange={handleBlur} onFocus={handleFocus} placeholder="qlal" />
-//사용법 3)<Input type="icon" placeholder="test" onChange={handleBlur} Icon={<img src={search} or Icon={people} />}/>
+//사용법 3)<Input type="icon" placeholder="test" onChange={handleBlur} Icon={<img src={search}} or Icon={people} />}/>
 
 interface InputProps {
   error?: boolean;
@@ -35,33 +35,38 @@ export const Input = ({
   const [showOpen, setShowOpen] = useState<boolean>(false);
 
   return (
-    <Container style={{ width }}>
-      <Label htmlFor={label}>{label}</Label>
-      <InputWrap>
-        {type === "icon" && <Icons>{Icon}</Icons>}
-        <LInput
-          id={label}
-          type={type === "password" ? (showOpen ? "text" : "password") : type}
-          autoComplete="on"
-          value={value}
-          placeholder={placeholder}
-          onChange={onChange}
-          onFocus={onFocus}
-          $password={type}
-        />
-        {type === "password" && (
-          <Eyes onClick={() => setShowOpen(!showOpen)}>
-            {showOpen ? (
-              <img src={EyesClose} alt="Eyes Close" />
-            ) : (
-              <img src={EyesOpen} alt="Eyes Open" />
-            )}
-          </Eyes>
-        )}
-      </InputWrap>
-    </Container>
+    <Warp>
+      <Container style={{ width }}>
+        <Label htmlFor={label}>{label}</Label>
+        <InputWrap>
+          {type === "icon" && <Icons>{Icon}</Icons>}
+          <LInput
+            id={label}
+            type={type === "password" ? (showOpen ? "text" : "password") : type}
+            autoComplete="on"
+            value={value}
+            placeholder={placeholder}
+            onChange={onChange}
+            onFocus={onFocus}
+            $password={type}
+          />
+          {type === "password" && (
+            <Eyes onClick={() => setShowOpen(!showOpen)}>
+              {showOpen ? (
+                <img src={EyesClose} alt="Eyes Close" />
+              ) : (
+                <img src={EyesOpen} alt="Eyes Open" />
+              )}
+            </Eyes>
+          )}
+        </InputWrap>
+      </Container>
+      <Message>{bottomMessage}</Message>
+    </Warp>
   );
 };
+
+const Warp = styled.div``;
 
 const Container = styled.div<{ height?: string; width?: string }>`
   width: 100%;
@@ -69,11 +74,11 @@ const Container = styled.div<{ height?: string; width?: string }>`
   flex-direction: column;
   gap: 4px;
   box-sizing: border-box;
-  border: 2px solid ${({ theme }) => theme.color.gray__1};
+  border: 1px solid ${({ theme }) => theme.color.gray__1};
   border-radius: 4px;
   transition: 100ms all ease-in-out;
   &:focus-within {
-    border: 2px solid;
+    border: 1px solid;
   }
 `;
 
@@ -105,4 +110,9 @@ const Icons = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+const Message = styled.div`
+  font-size: 10px;
+  color: ${({ theme }) => theme.color.red_1};
 `;
