@@ -49,8 +49,6 @@ export const SelectTag: React.FC = () => {
 const ContSelect = styled.article`
   position: relative;
   width: 194px;
-  margin-top: 30px; // 지우기
-  margin-left: 30px; // 지우기
 `;
 
 const BtnSelect = styled.button`
