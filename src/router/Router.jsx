@@ -15,6 +15,7 @@ import { Footer } from "../components/common/home/footer";
 import { Circles } from "../components/introduceIdol/circle2";
 import { IntroduceComp } from "../components/introduceIdol/introduceComp";
 import { Profile } from "../pages/Profile";
+import { SelectTag } from "../components/common/tag/selectTag";
 
 
 export const Router = () => {
@@ -37,6 +38,7 @@ export const Router = () => {
         <Route path="/circles" element={<Circles />} />
         <Route path="/introduceComp" element={<IntroduceComp />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/selectTag" element={<SelectTag />} />
       </Routes>
     </BrowserRouter>
   );

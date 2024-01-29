@@ -7,17 +7,12 @@ export function Profile() {
         <>
             <Header />
             <Wrapper>
-                <Div></Div>
+                <></>
             </Wrapper>
         </>
     );
 }
 
-const Div = styled.div`
-    width: 300px;
-    height: 500px;
-    background-color: black;
-`;
 
 const Wrapper = styled.div`
     height: 91vh;
