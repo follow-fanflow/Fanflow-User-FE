@@ -13,7 +13,6 @@ export const Thumbnail = ({ img, title, detail }: ThumbnailProps) => {
   const [noheart, setHeart] = useState<boolean>(false);
 
   const handleThumbnailClick = () => {
-    console.log("Thumbnail clicked!");
     window.location.href = "/fanlog/detail";
   };
 
