@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../assets/imgs/logo1.svg";
-import { theme } from "../styles/theme";
 import search from "../assets/imgs/search.svg";
 import { Input } from "../components/common/input/Input";
 import { Header } from "../components/header";
@@ -9,6 +8,9 @@ import { Speech } from "../components/common/home/speeechbubble";
 import { Circle } from "../components/common/home/circle";
 import Mac from "../assets/imgs/Mac.svg";
 import { Footer } from "../components/common/home/footer";
+import Button from "../components/common/button/Button";
+import { theme } from "../styles/theme";
+import homeLast from "../assets/imgs/homeLast.svg";
 
 export function Home() {
   return (
@@ -112,7 +114,34 @@ export function Home() {
           <img src={Mac} alt="" />
         </Introduce>
       </IntroduceWarp>
-      <Last></Last>
+      <Last>
+        <Warp>
+          <Title>내 최애가 있는지 지금 확인해보세요</Title>
+          <ButtonWarp>
+            <Button
+              content="아티스트 보기"
+              width={150}
+              height={44}
+              buttonStyle={{
+                backgroundColor: "#f96c85",
+              }}
+            />
+
+            <Button
+              content="팬로그보기"
+              width={150}
+              height={44}
+              buttonStyle={{
+                backgroundColor: "#00000000",
+                color: "#f96c85",
+              }}
+            />
+          </ButtonWarp>
+        </Warp>
+        <Img>
+          <img src={homeLast} width={"660px"} alt="" />
+        </Img>
+      </Last>
       <Footer />
     </>
   );
@@ -201,6 +230,8 @@ const Ex = styled.p`
 `;
 
 const Last = styled.div`
+  display: flex;
+  align-items: center;
   height: 800px;
   background: linear-gradient(
     180deg,
@@ -209,4 +240,15 @@ const Last = styled.div`
     rgba(255, 187, 187, 0.83) 71.5%,
     rgba(255, 102, 102, 0.7) 100%
   );
+  overflow: hidden;
+`;
+
+const Img = styled.div``;
+
+const ButtonWarp = styled.div``;
+const Warp = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0px 370px;
+  gap: 8px;
 `;

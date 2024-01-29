@@ -16,7 +16,20 @@ export const Speech = ({ detail, back }: SpeechProps) => {
   );
 };
 
-const Warp = styled.div``;
+const Warp = styled.div`
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translate3d(0, 100%, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+
+  animation: fadeInUp 0.5s ease-in-out;
+`;
 
 const Square = styled.div<{ backgroundColor: string }>`
   display: flex;

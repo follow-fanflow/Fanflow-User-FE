@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { styled } from "styled-components";
+import { useInView } from "react-intersection-observer";
 import { BoxShadow, theme } from "../../../styles/theme";
 
 interface CircleProps {
@@ -9,8 +10,18 @@ interface CircleProps {
 }
 
 export const Circle = ({ title, detail, color }: CircleProps) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      console.log("Circle component is now in view!");
+    }
+  }, [inView]);
+
   return (
-    <Back color={color}>
+    <Back ref={ref} color={color} className={inView ? animatedClassName : ""}>
       <Text>
         <First>{title}</First>
         <p>{detail}</p>
@@ -33,6 +44,15 @@ const Back = styled.div<{ color: string }>`
   box-sizing: border-box;
 
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+
+  transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+  &.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
 `;
 
 const First = styled.div`
@@ -45,3 +65,5 @@ const Text = styled.div`
   flex-direction: column;
   gap: 28px;
 `;
+
+const animatedClassName = "in-view";
