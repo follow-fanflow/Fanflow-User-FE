@@ -1,6 +1,4 @@
 import React, { ReactNode, useState } from 'react';
-import { Link } from 'react-router-dom';
-
 
 // 사용방법:<Button to="/route" width={number} height={number} backgroundColor="" hoverColor="" content="Go to Route"/>
 interface ButtonProps {
@@ -56,7 +54,7 @@ const Button: React.FC<ButtonProps> = ({
 
     if (to) {
         return (
-            <Link to={to} style={{ textDecoration: 'none' }}>
+            <a href={to} style={{ textDecoration: 'none' }}>
                 <button
                     style={mergedButtonStyle}
                     onClick={onClick}
@@ -65,22 +63,20 @@ const Button: React.FC<ButtonProps> = ({
                 >
                     {content}
                 </button>
-            </Link>
+            </a>
         );
     }
 
-    return null;
-
-    // return (
-    //     <button
-    //         style={mergedButtonStyle}
-    //         onClick={onClick}
-    //         onMouseEnter={handleHover}
-    //         onMouseLeave={handleLeave}
-    //     >
-    //         {content}
-    //     </button>
-    // );
+    return (
+        <button
+            style={mergedButtonStyle}
+            onClick={onClick}
+            onMouseEnter={handleHover}
+            onMouseLeave={handleLeave}
+        >
+            {content}
+        </button>
+    );
 };
 
 export default Button;

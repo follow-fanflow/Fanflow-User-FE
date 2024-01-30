@@ -45,8 +45,8 @@ export function Profile() {
                             </ContainerBox>
                             <SmallContainer>
                                 <ButtonWrapper>
-                                    <Button to="/" width={148} height={39} backgroundColor="#F96C85" hoverColor="#FF4869" content="비밀번호 변경" />
-                                    <Button to="/" width={148} height={39} backgroundColor="#F96C85" hoverColor="#FF4869" content="닉네임 변경" />
+                                    <Button width={148} height={39} backgroundColor="#F96C85" hoverColor="#FF4869" content="비밀번호 변경" />
+                                    <Button width={148} height={39} backgroundColor="#F96C85" hoverColor="#FF4869" content="닉네임 변경" />
                                 </ButtonWrapper>
                             </SmallContainer>
                         </ContainerWrapper>
