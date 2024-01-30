@@ -19,6 +19,7 @@ import { SelectTag } from "../components/common/tag/selectTag";
 import { FanlogDetail } from "../pages/fanlogDetail";
 import { WriteLog } from "../pages/writeFanlog";
 import { SearchTag } from "../components/common/tag/searchTag";
+import { DeleteModal } from "../components/common/modal/deleteModal";
 
 export const Router = () => {
   return (
@@ -43,7 +44,8 @@ export const Router = () => {
         <Route path="/introduceComp" element={<IntroduceComp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/selectTag" element={<SelectTag />} />
-        <Route path="/searchTag" element={<SearchTag />}></Route>
+        <Route path="/searchTag" element={<SearchTag />} />
+        <Route path="/deleteModal" element={<DeleteModal />} />
       </Routes>
     </BrowserRouter>
   );

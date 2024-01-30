@@ -1,12 +1,14 @@
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 
-// 사용방법:<Button to="/route" width={number} height={number} backgroundColor="" hoverColor="" content="Go to Route"/>
+// 사용방법:<Button to="/route" width={number} height={number} backgroundColor="" hoverColor="" boderColor="" textColor="" content="Go to Route"/>
 interface ButtonProps {
     to?: string;
     width?: number;
     height?: number;
     backgroundColor?: string;
     hoverColor?: string;
+    borderColor?: string;
+    textColor?: string;
     onClick?: () => void;
     content?: string;
     buttonStyle?: React.CSSProperties;
@@ -18,6 +20,8 @@ const Button: React.FC<ButtonProps> = ({
     height = 40,
     backgroundColor = '#FFA495',
     hoverColor = '#FF7878',
+    borderColor = 'transparent',
+    textColor = 'white',
     onClick,
     content,
     buttonStyle,
@@ -32,11 +36,11 @@ const Button: React.FC<ButtonProps> = ({
         justifyContent: 'center',
         alignItems: 'center',
         cursor: 'pointer',
-        border: 'none',
+        border: `1px solid ${borderColor}`,
         borderRadius: '4px',
         outline: 'none',
         transition: 'background-color 0.3s ease',
-        color: 'white'
+        color: textColor,
     };
 
     const mergedButtonStyle = {
