@@ -111,8 +111,7 @@ export const MyCalender = () => {
       prev2Label={null}
       showNeighboringMonth={true}
       tileContent={({ date, view }) => {
-        // 하드코딩된 데이터 예시
-        const hardcodedMark = ["2022-02-02", "2022-02-02", "2022-02-10"];
+        const hardcodedMark = ["2024-02-02", "2024-01-22", "2024-01-29"];
 
         if (hardcodedMark.find((x) => x === dayjs(date).format("YYYY-MM-DD"))) {
           return (
@@ -138,8 +137,8 @@ const Wrap = styled.div`
 
 const Dot = styled.div`
   position: absolute;
-  height: 4px;
-  width: 4px;
+  height: 6px;
+  width: 6px;
   top: 0;
   background-color: ${theme.color.zero};
   border-radius: 50%;
