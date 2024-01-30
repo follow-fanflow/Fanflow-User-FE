@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Header } from "../components/header";
-import { Search } from "../components/bitrthdayCafe/search";
+import { BirthSearchComp } from "../components/bitrthdayCafe/birthSearchComp";
 
 export function SearchCafe() {
 
@@ -9,7 +9,7 @@ export function SearchCafe() {
     <>
       <Header />
       <Wrapper>
-        <Search />
+        <BirthSearchComp />
         <LineWrapper>
           <Line></Line>
         </LineWrapper>

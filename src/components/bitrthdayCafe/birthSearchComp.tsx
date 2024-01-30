@@ -6,7 +6,7 @@ import SearchIcon from "../../assets/imgs/search.svg";
 import TextLogo from "../../assets/imgs/textLogo.svg";
 import { SearchTag } from "../common/tag/searchTag";
 
-export const Search = () => {
+export const BirthSearchComp = () => {
   return (
     <div>
       <SearchWrapper>
