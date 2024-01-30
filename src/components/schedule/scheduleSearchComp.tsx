@@ -6,13 +6,13 @@ import SearchIcon from "../../assets/imgs/search.svg";
 import TextLogo from "../../assets/imgs/textLogo.svg";
 import { SearchTag } from "../common/tag/searchTag";
 
-export const Search = () => {
+export const ScheduleSearchComp = () => {
   return (
     <div>
       <SearchWrapper>
         <LogoImg src={Logo} alt="Logo"></LogoImg>
         <InputWrapper>
-          <SearchTag content="내 최애 생일카페가 어디어디에 있나?" />
+          <SearchTag content="스케줄이 궁금한 아이돌" />
         </InputWrapper>
         <LogoImg2 src={TextLogo} alt="textLogo"></LogoImg2>
       </SearchWrapper>

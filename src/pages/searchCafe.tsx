@@ -5,20 +5,20 @@ import { Search } from "../components/bitrthdayCafe/search";
 
 export function SearchCafe() {
 
-    return (
-        <>
-            <Header />
-            <Wrapper>
-                <Search />
-                <LineWrapper>
-                    <Line></Line>
-                </LineWrapper>
-                <ContentWrapper>
-                    <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>
-                </ContentWrapper>
-            </Wrapper>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <Wrapper>
+        <Search />
+        <LineWrapper>
+          <Line></Line>
+        </LineWrapper>
+        <ContentWrapper>
+          <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>
+        </ContentWrapper>
+      </Wrapper>
+    </>
+  );
 }
 
 const Content = styled.div`

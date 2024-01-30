@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import TagInput from '../input/tagInput';
 import Close from "../../../assets/imgs/close.svg";
 
-export const SearchTag = () => {
+interface SearchTagProps {
+    content?: string;
+}
+
+export const SearchTag: React.FC<SearchTagProps> = ({ content }) => {
     const [tags, setTags] = useState<string[]>([]);
 
     const removeTags = (indexToRemove: number) => {
@@ -29,7 +33,7 @@ export const SearchTag = () => {
                             </TagItem>
                         ))}
                     </TagList>
-                    <Div>스캐줄이 궁금한 아이돌</Div>
+                    {content && <Content>{content}</Content>}
                     <TagInput
                         onEnter={addTags}
                         placeholder={tags.length === 0 ? '검색하세요' : ''}
@@ -41,26 +45,25 @@ export const SearchTag = () => {
     );
 };
 
-const Div = styled.div`
-    font-size: 14px;
-    margin-top: 15px;
+const Content = styled.div`
+    font-size: 13px;
     color: ${({ theme }) => theme.color.gray__1};
     margin-bottom: 3px;
 `;
 
 const TagsInputContainer = styled.div`
-    margin: 2rem auto 8rem;
     display: flex;
-    flex-direction: wrap;
+    flex-direction: column;
     align-items: flex-start;
     width: 409px;
+    align-items: center;
 `;
 
 const TagList = styled.ul`
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    margin: 8px 0 0 0;
+    margin-bottom: 19px;
 `;
 
 const TagItem = styled.li`
