@@ -20,6 +20,7 @@ import { FanlogDetail } from "../pages/fanlogDetail";
 import { WriteLog } from "../pages/writeFanlog";
 import { SearchTag } from "../components/common/tag/searchTag";
 import { DeleteModal } from "../components/common/modal/deleteModal";
+import { Schedule } from "../pages/showSchedule";
 
 export const Router = () => {
   return (
@@ -31,6 +32,7 @@ export const Router = () => {
         <Route path="/map" element={<SearchCafe />} />
         <Route path="/map/show" element={<ShowCafe />} />
         <Route path="/schedule" element={<SearchSchedule />} />
+        <Route path="/schedule/search" element={<Schedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
         <Route path="/fanlog/detail" element={<FanlogDetail />} />
         <Route path="/fanlog/write" element={<WriteLog />} />
