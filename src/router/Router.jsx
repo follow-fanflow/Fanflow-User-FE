@@ -18,6 +18,7 @@ import { Profile } from "../pages/Profile";
 import { SelectTag } from "../components/common/tag/selectTag";
 import { FanlogDetail } from "../pages/fanlogDetail";
 import { WriteLog } from "../pages/writeFanlog";
+import { SearchTag } from "../components/common/tag/searchTag";
 
 export const Router = () => {
   return (
@@ -42,6 +43,7 @@ export const Router = () => {
         <Route path="/introduceComp" element={<IntroduceComp />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/selectTag" element={<SelectTag />} />
+        <Route path="/searchTag" element={<SearchTag />}></Route>
       </Routes>
     </BrowserRouter>
   );
