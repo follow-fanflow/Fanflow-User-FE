@@ -1,3 +1,10 @@
-// 파일 내용...
+import { MyCalender } from "../components/calendar/calendar";
+import { ScheduleSearchComp } from "../components/schedule/scheduleSearchComp";
 
-export { };
+export const Schedule = () => {
+  return (
+    <>
+      <MyCalender />
+    </>
+  );
+};

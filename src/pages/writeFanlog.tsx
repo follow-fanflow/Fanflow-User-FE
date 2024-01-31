@@ -5,6 +5,7 @@ import { Header } from "../components/header";
 import Button from "../components/common/button/Button";
 import camera from "../assets/imgs/camera.svg";
 import { Thumbnail } from "../components/common/log/thumbnail";
+import { SelectTag } from "../components/common/tag/selectTag";
 
 export const WriteLog = () => {
   const today = new Date();
@@ -19,8 +20,10 @@ export const WriteLog = () => {
       </BannerWarp>
       <Second>
         <DateContainer>
-          {today.getFullYear()}년 {today.getMonth() + 1}월 {today.getDate()}일
-          {/*태그 */}
+          <Left>
+            {today.getFullYear()}년 {today.getMonth() + 1}월 {today.getDate()}일
+            <SelectTag />
+          </Left>
           <Button
             content="올리기"
             width={94}
@@ -57,6 +60,12 @@ export const WriteLog = () => {
     </Wrapper>
   );
 };
+
+const Left = styled.div`
+  display: flex;
+  gap: 8px;
+  align-items: center;
+`;
 
 const Logwarp = styled.div`
   display: flex;

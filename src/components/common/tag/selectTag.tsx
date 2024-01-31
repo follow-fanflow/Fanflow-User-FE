@@ -2,48 +2,48 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const fetchItemsFromApi = async (): Promise<string[]> => {
-  // 나중에 api 연동 ㄱㄱ
-  return ['LUCY', 'SEVENTEEN', 'AB6IX', 'AESPA', 'NEWJEANS'];
+    // 나중에 api 연동 ㄱㄱ
+    return ['LUCY', 'SEVENTEEN', 'AB6IX', 'AESPA', 'NEWJEANS'];
 };
 
 export const SelectTag: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('iDOL');
-  const [itemsFromApi, setItemsFromApi] = useState<string[]>([]);
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedItem, setSelectedItem] = useState('iDOL');
+    const [itemsFromApi, setItemsFromApi] = useState<string[]>([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await fetchItemsFromApi();
-        setItemsFromApi(result);
-      } catch (error: any) {
-        console.error('error: ', error);
-      }
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const result = await fetchItemsFromApi();
+                setItemsFromApi(result);
+            } catch (error: any) {
+                console.error('error: ', error);
+            }
+        };
+        fetchData();
+    }, []);
+
+    const handleButtonClick = () => {
+        setIsOpen(!isOpen);
     };
-    fetchData();
-  }, []);
 
-  const handleButtonClick = () => {
-    setIsOpen(!isOpen);
-  };
+    const handleListItemClick = (item: any) => {
+        setSelectedItem(item);
+        setIsOpen(false);
+    }
 
-  const handleListItemClick = (item: any) => {
-    setSelectedItem(item);
-    setIsOpen(false);
-  }
-
-  return (
-    <ContSelect className={isOpen ? 'on' : ''}>
-      <BtnSelect onClick={handleButtonClick}>{selectedItem}</BtnSelect>
-      <ListMember>
-        {itemsFromApi.map((item, index) => (
-          <ListItem key={index}>
-            <ButtonInListItem type="button" onClick={() => handleListItemClick(item)}>{item}</ButtonInListItem>
-          </ListItem>
-        ))}
-      </ListMember>
-    </ContSelect>
-  );
+    return (
+        <ContSelect className={isOpen ? 'on' : ''}>
+            <BtnSelect onClick={handleButtonClick}>{selectedItem}</BtnSelect>
+            <ListMember>
+                {itemsFromApi.map((item, index) => (
+                    <ListItem key={index}>
+                        <ButtonInListItem type="button" onClick={() => handleListItemClick(item)}>{item}</ButtonInListItem>
+                    </ListItem>
+                ))}
+            </ListMember>
+        </ContSelect>
+    );
 };
 
 const ContSelect = styled.article`
@@ -99,7 +99,7 @@ const ButtonInListItem = styled.button`
   width: 100%;
   padding: 7px 10px;
   border: none;
-  background-color: white;
+  background-color: #fff;
   border-radius: 5px;
   cursor: pointer;
   text-align: left;

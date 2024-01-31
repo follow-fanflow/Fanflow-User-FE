@@ -10,16 +10,22 @@ interface ChangeModalProps {
     type: "password" | "nickname";
 }
 
+
+
 export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeModal, title, placeholder, type }) => {
     const handleFocus = () => {
         console.log('')
     }
-
     return (
         <>
             <ModalWrapper>
                 <div style={{ fontSize: '20px', marginBottom: '30px' }}>{title}</div>
-                <Input width="330px" placeholder={placeholder} onChange={handleFocus} type={type === "password" ? "password" : "text"} />
+                <Input
+                    width="330px"
+                    placeholder={placeholder}
+                    onChange={handleFocus}
+                    type={type === "password" ? "password" : "text"}
+                />
                 <ButtonWrapper>
                     <Button
                         width={150}
