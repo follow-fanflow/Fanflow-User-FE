@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 import Search from "../../../assets/imgs/search.svg";
-import { SearchTag } from "../tag/searchTag";
 
 interface AutoInputProps {
   label?: string;
@@ -39,7 +38,6 @@ export const AutoInput = ({
 
   return (
     <Wrapper>
-      <SearchTag content="s" />
       <Label>{label}</Label>
       <Container>
         <Icon>
