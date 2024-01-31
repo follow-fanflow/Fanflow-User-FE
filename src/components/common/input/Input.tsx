@@ -15,7 +15,7 @@ interface InputProps {
   type?: string;
   width?: string;
   value?: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onFocus?: () => void;
   Icon?: React.ReactNode;
 }
