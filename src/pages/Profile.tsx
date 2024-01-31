@@ -8,26 +8,17 @@ import CircleImg from "../assets/imgs/circle.svg";
 import PersonImg from "../assets/imgs/profile.svg";
 
 export function Profile() {
-    const [isChangeModalVisible, setChangeModalVisible] = useState(false);
-    const [isPasswordModalVisible, setPasswordModalVisible] = useState(false);
+    const [isChangeModalVisible, setChangeModalVisibility] = useState(false);
+    const [changeModalType, setChangeModalType] = useState<"password" | "nickname">("password");
 
-    const openChangeModal = () => {
-        console.log('닉네임 변경 모달 오픈!!');
-        setChangeModalVisible(true);
-    }
+    const showChangeModal = (type: "password" | "nickname") => {
+        setChangeModalVisibility(true);
+        setChangeModalType(type);
+    };
 
-    const closeChangeModal = () => {
-        setChangeModalVisible(false);
-    }
-
-    const openPasswordModal = () => {
-        console.log('비밀번호 변경 모달 오픈!!');
-        setPasswordModalVisible(true);
-    }
-
-    const closePasswordModal = () => {
-        setPasswordModalVisible(false);
-    }
+    const hideChangeModal = () => {
+        setChangeModalVisibility(false);
+    };
 
     React.useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -73,7 +64,7 @@ export function Profile() {
                                         backgroundColor="#F96C85"
                                         hoverColor="#FF4869"
                                         content="비밀번호 변경"
-                                        onClick={openPasswordModal}
+                                        onClick={() => showChangeModal("password")}
                                     />
                                     <Button
                                         width={148}
@@ -81,7 +72,7 @@ export function Profile() {
                                         backgroundColor="#F96C85"
                                         hoverColor="#FF4869"
                                         content="닉네임 변경"
-                                        onClick={openChangeModal}
+                                        onClick={() => showChangeModal("nickname")}
                                     />
                                 </ButtonWrapper>
                             </SmallContainer>
@@ -91,24 +82,11 @@ export function Profile() {
             </Wrapper>
             {isChangeModalVisible && (
                 <ChangeModal
-                    title="닉네임을 변경하시겠습니까?"
-                    onSubmit={() => {
-                        closeChangeModal();
-                        // 닉네임 변경 제출 처리 로직 추가
-                    }}
-                    onCancel={closeChangeModal}
-                    inputPlaceholder="변경할 닉네임을 적어주세요"
-                />
-            )}
-            {isPasswordModalVisible && (
-                <ChangeModal
-                    title="비밀번호를 변경하시겠습니까?"
-                    onSubmit={() => {
-                        closePasswordModal();
-                        // 비밀번호 변경 제출 처리 로직 추가
-                    }}
-                    onCancel={closePasswordModal}
-                    inputPlaceholder="새로운 비밀번호를 입력해주세요"
+                    onClose={hideChangeModal}
+                    showChangeModal={showChangeModal}
+                    title={changeModalType === "password" ? "비밀번호를 변경하시겠습니까?" : "닉네임을 변경하시겠습니까?"}
+                    placeholder={changeModalType === "password" ? "새로운 비밀번호를 적어주세요" : "새로운 닉네임을 입력하세요"}
+                    type={changeModalType}
                 />
             )}
         </>
@@ -186,7 +164,7 @@ const ContainerBox = styled.div`
 const ContainerWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    margin-top: 240px;
+    margin-top: 230px;
     margin-left: 300px;
 `;
 
