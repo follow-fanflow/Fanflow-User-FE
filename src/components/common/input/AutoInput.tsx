@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 import Search from "../../../assets/imgs/search.svg";
+import Tag from "../tag/Tag";
 
 interface AutoInputProps {
   label?: string;
@@ -17,6 +18,8 @@ export const AutoInput = ({
   suggestions,
 }: AutoInputProps) => {
   const [inputValue, setInputValue] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [tags, setTags] = useState<string[]>([]);
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,13 +35,29 @@ export const AutoInput = ({
   };
 
   const handleSelect = (value: string) => {
-    setInputValue(value);
+    setInputValue("");
     setFilteredSuggestions([]);
+    setSelectedTag(value);
+    setTags((prevTags) => [...prevTags, value]);
+  };
+
+  const handleTagDelete = (tag: string) => {
+    setSelectedTag(null);
+    setTags((prevTags) => prevTags.filter((t) => t !== tag));
   };
 
   return (
     <Wrapper>
-      <Label>{label}</Label>
+      <Top>
+        {selectedTag && (
+          <Tag
+            key={selectedTag}
+            label={selectedTag}
+            onDelete={() => handleTagDelete(selectedTag)}
+          />
+        )}
+        <Label>{label}</Label>
+      </Top>
       <Container>
         <Icon>
           <img src={Search} />
@@ -61,9 +80,16 @@ export const AutoInput = ({
   );
 };
 
+const Top = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
+  gap: 2px;
 `;
 
 const Input = styled.input`
