@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import TagInput from '../input/tagInput';
 import Close from "../../../assets/imgs/close.svg";
+import { Link, useNavigate } from 'react-router-dom';
 
 interface SearchTagProps {
     content?: string;
@@ -9,6 +10,7 @@ interface SearchTagProps {
 
 export const SearchTag: React.FC<SearchTagProps> = ({ content }) => {
     const [tags, setTags] = useState<string[]>([]);
+    const navigate = useNavigate();
 
     const removeTags = (indexToRemove: number) => {
         const filter = tags.filter((el, index) => index !== indexToRemove);
@@ -20,6 +22,12 @@ export const SearchTag: React.FC<SearchTagProps> = ({ content }) => {
             setTags([...tags, value]);
         }
     };
+
+    const handleEnter = () => {
+        if (tags.length > 0) {
+            navigate('/map/show');
+        }
+    }
 
     return (
         <>
@@ -36,6 +44,7 @@ export const SearchTag: React.FC<SearchTagProps> = ({ content }) => {
                     {content && <Content>{content}</Content>}
                     <TagInput
                         onEnter={addTags}
+                        onEnterPress={handleEnter}
                         placeholder={tags.length === 0 ? '검색하세요' : ''}
                         tags={tags}
                     />

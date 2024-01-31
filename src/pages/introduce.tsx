@@ -4,13 +4,16 @@ import { Header } from "../components/header";
 import Lucy from "../assets/imgs/Lucy.svg";
 import BackBtn from "../assets/imgs/backBtn.svg";
 import MemberPicture from "../assets/imgs/yechan.svg";
+import { Link } from "react-router-dom";
 
 export function Introduce() {
     return (
         <>
             <Header />
             <Wrapper>
-                <Button src={BackBtn}></Button>
+                <ButtonWrapper to='/introduce'>
+                    <Button src={BackBtn}></Button>
+                </ButtonWrapper>
                 <Box1>
                     <GroupProfile>
                         <img src={Lucy}></img>
@@ -91,6 +94,8 @@ const Box2 = styled.div`
     justify-content: center;
     padding-left: 50px;
 `;
+
+const ButtonWrapper = styled(Link)``;
 
 const Button = styled.img`
     margin-bottom: 632px;

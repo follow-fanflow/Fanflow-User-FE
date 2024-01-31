@@ -41,7 +41,7 @@ export function Login() {
             />
             <PwIcon src={showPassword ? EyeOpenIcon : EyeCloseIcon} onClick={handleTogglePassword} />
           </PwWrapper>
-          <LoginBtn>로그인</LoginBtn>
+          <LoginBtn to='/'>로그인</LoginBtn>
           <SpanWrapper>
             <Span>아직 회원이 아니신가요?</Span>
             <SignUpBtn to='/signUp'>회원가입하기</SignUpBtn>
@@ -87,7 +87,12 @@ const SpanWrapper = styled.div`
   gap: 7px;
 `;
 
-const LoginBtn = styled.button`
+const LoginBtn = styled(Link)`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  text-decoration: none;
   width: 262px;
   height: 30px;
   background-color: ${({ theme }) => theme.color.zero};

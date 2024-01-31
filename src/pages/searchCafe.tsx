@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Header } from "../components/header";
 import { BirthSearchComp } from "../components/bitrthdayCafe/birthSearchComp";
+import { Link } from "react-router-dom";
 
 export function SearchCafe() {
 

@@ -1,5 +1,5 @@
 import { Input } from "../common/input/Input";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../../assets/imgs/logo1.svg";
 import SearchIcon from "../../assets/imgs/search.svg";
@@ -7,6 +7,7 @@ import TextLogo from "../../assets/imgs/textLogo.svg";
 import { SearchTag } from "../common/tag/searchTag";
 
 export const BirthSearchComp = () => {
+
   return (
     <div>
       <SearchWrapper>
