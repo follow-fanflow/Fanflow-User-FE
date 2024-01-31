@@ -16,7 +16,7 @@ export function SignUp() {
   function handlePasswordChange(e: any, field: any) {
     setChangePassword((prev) => ({ ...prev, [field]: e.target.value }));
   }
-  function handleBlur() {}
+  function handleBlur() { }
   return (
     <Warp>
       <Sign>

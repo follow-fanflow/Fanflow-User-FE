@@ -186,7 +186,7 @@ const ContainerBox = styled.div`
 const ContainerWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    margin-top: 240px;
+    margin-top: 230px;
     margin-left: 300px;
 `;
 
