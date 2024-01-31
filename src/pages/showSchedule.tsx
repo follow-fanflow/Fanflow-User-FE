@@ -79,12 +79,12 @@ const ContentWrapper = styled.div`
   gap: 172px;
 
   width: 100%;
-  height: 100vh;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   margin-top: 75px;
+  height: 92vh;
 `;
 
 const SearchWarp = styled.div`
