@@ -20,6 +20,7 @@ import { FanlogDetail } from "../pages/fanlogDetail";
 import { WriteLog } from "../pages/writeFanlog";
 import { SearchTag } from "../components/common/tag/searchTag";
 import { DeleteModal } from "../components/common/modal/deleteModal";
+import { ChangeModal } from "../components/common/modal/changeModal";
 import { Schedule } from "../pages/showSchedule";
 
 export const Router = () => {
@@ -48,6 +49,7 @@ export const Router = () => {
         <Route path="/selectTag" element={<SelectTag />} />
         <Route path="/searchTag" element={<SearchTag />} />
         <Route path="/deleteModal" element={<DeleteModal />} />
+        <Route path="/changeModal" element={<ChangeModal />} />
       </Routes>
     </BrowserRouter>
   );

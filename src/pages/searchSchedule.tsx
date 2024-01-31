@@ -4,20 +4,19 @@ import { Header } from "../components/header";
 import { ScheduleSearchComp } from "../components/schedule/scheduleSearchComp";
 
 export function SearchSchedule() {
-    return (
-        <>
-            <Header />
-            <Wrapper>
-                <ScheduleSearchComp />
-                <LineWrapper>
-                    <Line></Line>
-                </LineWrapper>
-                <ContentWrapper>
-                    <Content>스캐줄이 궁금한 그룹을 검색해주세요</Content>
-                </ContentWrapper>
-            </Wrapper>
-        </>
-    );
+  return (
+    <>
+      <Header />
+      <Wrapper>
+        <LineWrapper>
+          <Line></Line>
+        </LineWrapper>
+        <ContentWrapper>
+          <Content>스캐줄이 궁금한 그룹을 검색해주세요</Content>
+        </ContentWrapper>
+      </Wrapper>
+    </>
+  );
 }
 
 const Content = styled.div`

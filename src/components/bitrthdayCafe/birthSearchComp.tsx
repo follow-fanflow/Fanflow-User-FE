@@ -44,4 +44,3 @@ const SearchWrapper = styled.div`
   align-items: center;
   margin-top: 70px;
 `;
-
