@@ -1,34 +1,32 @@
 import styled from "styled-components";
 import Button from "../button/Button";
 import { Input } from "../input/Input";
-import React, { ReactNode, useState } from "react";
-
-// 사용 법: <ChangeModal title="닉네임을 변경하시겠습니까?" onSubmit={() => { 닉네임 변경 로직 구현 }} onCancel={() => { 취소 로직 구현 }} inputPlaceholder="변경할 닉네임을 적어주세요" />
 
 interface ChangeModalProps {
+    onClose: () => void;
+    showChangeModal: () => void;
     title: string;
-    onSubmit: () => void;
-    onCancel: () => void;
-    inputPlaceholder: string;
+    placeholder: string;
 }
 
-export const ChangeModal: React.FC<ChangeModalProps> = ({
-    title,
-    onSubmit,
-    onCancel,
-    inputPlaceholder,
-}) => {
+export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeModal, title, placeholder }) => {
     const handleFocus = () => {
-        console.log("");
-    };
+        console.log('')
+    }
 
     return (
         <>
             <ModalWrapper>
-                <div style={{ fontSize: "20px", marginBottom: "30px" }}>{title}</div>
-                <Input width="330px" placeholder={inputPlaceholder} onChange={handleFocus} />
+                <div style={{ fontSize: '20px', marginBottom: '30px' }}>{title}</div>
+                <Input width="330px" placeholder={placeholder} onChange={handleFocus} />
                 <ButtonWrapper>
-                    <Button width={150} height={38} backgroundColor="#FFA495" content="변경하기" onClick={onSubmit} />
+                    <Button
+                        width={150}
+                        height={38}
+                        backgroundColor="#FFA495"
+                        content="변경하기"
+                        onClick={showChangeModal}
+                    />
                     <Button
                         width={150}
                         height={38}
@@ -37,7 +35,7 @@ export const ChangeModal: React.FC<ChangeModalProps> = ({
                         borderColor="#FFA495"
                         hoverColor="none"
                         textColor="#FFA495"
-                        onClick={onCancel}
+                        onClick={onClose}
                     />
                 </ButtonWrapper>
             </ModalWrapper>
@@ -56,6 +54,10 @@ const ModalWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const ButtonWrapper = styled.div`

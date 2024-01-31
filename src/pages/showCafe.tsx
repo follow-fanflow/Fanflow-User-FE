@@ -4,8 +4,7 @@ import { Header } from "../components/header";
 import { BirthSearchComp } from "../components/bitrthdayCafe/birthSearchComp";
 import Map from "../components/bitrthdayCafe/map";
 
-export function ShowCafe() {
-
+export const ShowCafe = () => {
     return (
         <>
             <Header />

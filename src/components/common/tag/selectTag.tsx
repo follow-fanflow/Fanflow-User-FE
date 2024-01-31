@@ -82,6 +82,7 @@ const ListMember = styled.ul`
   border: 1px solid ${({ theme }) => theme.color.gray__1};
   box-sizing: border-box;
   border-radius: 5px;
+  background-color: white;
 
   ${ContSelect}.on & {
     display: block;
