@@ -3,7 +3,6 @@ import { Login } from "../pages/login";
 import { SignUp } from "../pages/signUp";
 import { Header } from "../components/header";
 import { SearchCafe } from "../pages/searchCafe";
-import { SearchSchedule } from "../pages/searchSchedule";
 import { Fanlog } from "../pages/fanlog";
 import { IdolList } from "../pages/idolList";
 import { Introduce } from "../pages/introduce";
@@ -22,24 +21,25 @@ import { SearchTag } from "../components/common/tag/searchTag";
 import { DeleteModal } from "../components/common/modal/deleteModal";
 import { ChangeModal } from "../components/common/modal/changeModal";
 import { Schedule } from "../pages/showSchedule";
+import { NotFound } from "../pages/404";
 
 export const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/*" element={<NotFound />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/header" element={<Header />} />
         <Route path="/map" element={<SearchCafe />} />
         <Route path="/map/show" element={<ShowCafe />} />
-        <Route path="/schedule" element={<SearchSchedule />} />
-        <Route path="/schedule/search" element={<Schedule />} />
+        <Route path="/schedule" element={<Schedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
         <Route path="/fanlog/detail" element={<FanlogDetail />} />
         <Route path="/fanlog/write" element={<WriteLog />} />
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/introduce/group" element={<Introduce />} />
-        <Route path="/" element={<Home />} />
         <Route path="/input" element={<Input />} />
         <Route path="/mapApi" element={<Map />} />
         <Route path="/footer" element={<Footer />} />
