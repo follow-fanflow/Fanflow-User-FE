@@ -7,11 +7,12 @@ interface ChangeModalProps {
     showChangeModal: () => void;
     title: string;
     placeholder: string;
+    type?: string;
 }
 
-export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeModal, title, placeholder }) => {
+export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeModal, title, placeholder, type }) => {
     const handleFocus = () => {
-        console.log('')
+        console.log('');
     }
 
     return (
@@ -25,7 +26,7 @@ export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeMod
                         height={38}
                         backgroundColor="#FFA495"
                         content="변경하기"
-                        onClick={showChangeModal}
+                        onClick={onClose}
                     />
                     <Button
                         width={150}

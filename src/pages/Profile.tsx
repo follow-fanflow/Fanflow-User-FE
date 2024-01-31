@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { useState } from "react";
 import { Header } from "../components/header";
+import { ChangeModal } from "../components/common/modal/changeModal";
 import Button from "../components/common/button/Button";
 import LogoImg from "../assets/imgs/logo1.svg";
 import CircleImg from "../assets/imgs/circle.svg";
@@ -18,6 +19,7 @@ export function Profile() {
     const hideChangeModal = () => {
         setChangeModalVisibility(false);
     };
+
     React.useEffect(() => {
         document.body.style.overflow = 'hidden';
         return () => {
@@ -42,7 +44,7 @@ export function Profile() {
                         <ContainerWrapper>
                             <ContainerBox>
                                 <Container1>
-                                    <img src={PersonImg} style={{ width: '100px', marginBottom: '17px' }}></img>
+                                    <img src={PersonImg} style={{ width: '100px', marginBottom: '17px' }} alt="Profile"></img>
                                     <UserName>신예찬내꺼(님)</UserName>
                                     <UserId>아이디 넣기</UserId>
                                 </Container1>
@@ -72,23 +74,21 @@ export function Profile() {
                                         content="닉네임 변경"
                                         onClick={() => showChangeModal("nickname")}
                                     />
-                                    <Button width={148} height={39} backgroundColor="#F96C85" hoverColor="#FF4869" content="비밀번호 변경" />
-                                    <Button width={148} height={39} backgroundColor="#F96C85" hoverColor="#FF4869" content="닉네임 변경" />
                                 </ButtonWrapper>
                             </SmallContainer>
                         </ContainerWrapper>
                     </Circle>
                 </CircleWrapper>
             </Wrapper>
-            {/* {isChangeModalVisible && (
+            {isChangeModalVisible && (
                 <ChangeModal
                     onClose={hideChangeModal}
-                    showChangeModal={showChangeModal}
+                    showChangeModal={() => showChangeModal(changeModalType)}
                     title={changeModalType === "password" ? "비밀번호를 변경하시겠습니까?" : "닉네임을 변경하시겠습니까?"}
                     placeholder={changeModalType === "password" ? "새로운 비밀번호를 적어주세요" : "새로운 닉네임을 입력하세요"}
                     type={changeModalType}
                 />
-            )} */}
+            )}
         </>
     );
 }

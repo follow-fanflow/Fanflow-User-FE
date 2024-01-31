@@ -8,6 +8,7 @@ export function SearchSchedule() {
     <>
       <Header />
       <Wrapper>
+        <ScheduleSearchComp />
         <LineWrapper>
           <Line></Line>
         </LineWrapper>
