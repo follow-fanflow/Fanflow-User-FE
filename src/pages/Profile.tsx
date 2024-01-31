@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../components/header";
 import { ChangeModal } from "../components/common/modal/changeModal";
 import Button from "../components/common/button/Button";
@@ -10,6 +10,8 @@ import PersonImg from "../assets/imgs/profile.svg";
 export function Profile() {
     const [isChangeModalVisible, setChangeModalVisibility] = useState(false);
     const [changeModalType, setChangeModalType] = useState<"password" | "nickname">("password");
+    const [fanLogCount, setFanLogCount] = useState(0);
+    const [nickname, setNickname] = useState("");
 
     const showChangeModal = (type: "password" | "nickname") => {
         setChangeModalVisibility(true);
@@ -19,6 +21,36 @@ export function Profile() {
     const hideChangeModal = () => {
         setChangeModalVisibility(false);
     };
+
+    useEffect(() => {
+        const fetchFanLogCount = async () => {
+            try {
+                const response = await fetch("/팬로그 개수 api");
+                const data = await response.json();
+
+                setFanLogCount(data.count);
+            } catch (error) {
+                console.error('팬로그 count 에러', error);
+            }
+        }
+
+        const fetchNickname = async () => {
+            try {
+                const responeseNickname = await fetch("/닉네임 api");
+                const dataNickname = await responeseNickname.json();
+                setNickname(dataNickname.nickname);
+            } catch (error) {
+                console.error("닉네임 에러", error);
+            }
+        };
+
+        fetchFanLogCount();
+        fetchNickname();
+
+        return () => {
+            document.body.style.overflow = 'visible';
+        }
+    }, [])
 
     React.useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -45,13 +77,13 @@ export function Profile() {
                             <ContainerBox>
                                 <Container1>
                                     <img src={PersonImg} style={{ width: '100px', marginBottom: '17px' }} alt="Profile"></img>
-                                    <UserName>신예찬내꺼(님)</UserName>
+                                    <UserName>{nickname}(님)</UserName>
                                     <UserId>아이디 넣기</UserId>
                                 </Container1>
                                 <Container2>
                                     <div style={{ fontSize: '20px' }}>지금까지 작성하신 팬로그는</div>
                                     <CountWrapper>
-                                        <Count>99개</Count>
+                                        <Count>{fanLogCount}개</Count>
                                         <div style={{ fontSize: '20px', marginLeft: '6px' }}>입니다</div>
                                     </CountWrapper>
                                 </Container2>
