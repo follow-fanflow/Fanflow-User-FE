@@ -4,6 +4,7 @@ import { Header } from "../components/header";
 import banner from "../assets/imgs/배너.png";
 import { Thumbnail } from "../components/common/log/thumbnail";
 import Button from "../components/common/button/Button";
+import { SelectTag } from "../components/common/tag/selectTag";
 
 export function Fanlog() {
   return (
@@ -18,6 +19,7 @@ export function Fanlog() {
       </Wrapper>
       <Warp>
         <Search>
+          <SelectTag />
           <Button
             content="작성하기"
             width={154}
@@ -70,6 +72,10 @@ const BannerWarp = styled.div`
 
 const Search = styled.div`
   padding: 0px 57px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 460px;
 `;
 
 const LogWarp = styled.div`
