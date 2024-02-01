@@ -24,7 +24,7 @@ const TagWrapper = styled.div`
   background-color: ${theme.color.one};
   color: ${theme.color.white};
   padding: 4px 8px;
-  width: min-content;
+  width: fit-content;
   gap: 8px;
 
   border-radius: 20px;
