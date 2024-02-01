@@ -4,7 +4,7 @@ import { Header } from "../components/header";
 import { AutoInput } from "../components/common/input/AutoInput";
 import Logo from "../assets/imgs/logo1.svg";
 import textlogo from "../assets/imgs/textLogo.svg";
-import DaySchedule from "../components/schedule/daySchedule";
+import { DaySchedule } from "../components/schedule/daySchedule";
 import { MyCalender } from "../components/calendar/calendar";
 import { theme } from "../styles/theme";
 import { ApplyButton } from "../components/common/button/applyButton";

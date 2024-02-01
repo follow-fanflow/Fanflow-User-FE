@@ -9,7 +9,7 @@ interface TagProps {
   onDelete: () => void;
 }
 
-const Tag: React.FC<TagProps> = ({ label, onDelete }) => {
+export const Tag = ({ label, onDelete }: TagProps) => {
   return (
     <TagWrapper>
       <Label>{label}</Label>
@@ -37,5 +37,3 @@ const DeleteButton = styled.button`
   color: inherit;
   cursor: pointer;
 `;
-
-export default Tag;
