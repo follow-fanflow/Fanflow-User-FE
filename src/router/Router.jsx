@@ -22,6 +22,7 @@ import { DeleteModal } from "../components/common/modal/deleteModal";
 import { ChangeModal } from "../components/common/modal/changeModal";
 import { Schedule } from "../pages/showSchedule";
 import { NotFound } from "../pages/404";
+import { ApplyButton } from "../components/common/button/applyButton";
 
 export const Router = () => {
   return (
@@ -50,6 +51,7 @@ export const Router = () => {
         <Route path="/searchTag" element={<SearchTag />} />
         <Route path="/deleteModal" element={<DeleteModal />} />
         <Route path="/changeModal" element={<ChangeModal />} />
+        <Route path="/applyBtn" element={<ApplyButton />} />
       </Routes>
     </BrowserRouter>
   );
