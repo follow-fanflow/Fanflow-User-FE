@@ -100,14 +100,13 @@ const ContentWrapper = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 16px;
-
   width: 100%;
 `;
 
 const Wrapper = styled.div`
   display: flex;
   margin-top: 75px;
-  height: 92vh;
+  height: 91vh;
 `;
 
 const SearchWarp = styled.div`

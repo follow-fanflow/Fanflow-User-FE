@@ -55,7 +55,7 @@ export const Router = () => {
         <Route path="/deleteModal" element={<DeleteModal />} />
         <Route path="/changeModal" element={<ChangeModal />} />
         <Route path="/applyBtn" element={<ApplyButton />} />
-        <Route path="/map/writeCafe" element={<WriteCafe />} />
+        <Route path="/map/write" element={<WriteCafe />} />
       </Routes>
     </BrowserRouter>
   );

@@ -9,7 +9,7 @@ import { ApplyButton } from "../components/common/button/applyButton";
 import App from "../App";
 
 export const SearchCafe = () => {
-  const suggest = ["ab6ix", "react", "ff", "avre", "ateez"];
+  const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];
 
   return (
     <Wrapper>
@@ -28,7 +28,7 @@ export const SearchCafe = () => {
       <ContentWrapper>
         <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>
         <ButtonStyle>
-          <ApplyButton width="205px" content="생일카페 추가하기" linkTo="/map/writeCafe" />
+          <ApplyButton width="205px" content="생일카페 추가하기" linkTo="/map/write" />
         </ButtonStyle>
       </ContentWrapper>
     </Wrapper>
@@ -55,7 +55,7 @@ const ContentWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   margin-top: 75px;
-  height: 92vh;
+  height: 91vh;
 `;
 
 const SearchWarp = styled.div`
