@@ -1,61 +1,75 @@
 import React from "react";
 import styled from "styled-components";
 import { Header } from "../components/header";
-import { BirthSearchComp } from "../components/bitrthdayCafe/birthSearchComp";
-import { Link } from "react-router-dom";
+import { AutoInput } from "../components/common/input/AutoInput";
+import Logo from "../assets/imgs/logo1.svg";
+import textlogo from "../assets/imgs/textLogo.svg";
+import { theme } from "../styles/theme";
 import { ApplyButton } from "../components/common/button/applyButton";
+import App from "../App";
 
-export function SearchCafe() {
+export const SearchCafe = () => {
+  const suggest = ["ab6ix", "react", "ff", "avre", "ateez"];
 
   return (
-    <>
+    <Wrapper>
       <Header />
-      <Wrapper>
-        <BirthSearchComp />
-        <LineWrapper>
-          <Line></Line>
-        </LineWrapper>
-        <ContentWrapper>
-          <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>
-          <ButtonStyle>
-            <ApplyButton width="205px" content="생일카페 추가하기" linkTo="/" />
-          </ButtonStyle>
-        </ContentWrapper>
-      </Wrapper>
-    </>
+      <SearchWarp>
+        <Top>
+          <img src={Logo} alt="" width={80} />
+          <AutoInput
+            suggestions={suggest}
+            placeholder="그룹명"
+            label="스케줄이 궁금한 아이돌"
+          />
+        </Top>
+        <img src={textlogo} />
+      </SearchWarp>
+      <ContentWrapper>
+        <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>
+        <ButtonStyle>
+          <ApplyButton width="205px" content="생일카페 추가하기" linkTo="/map/writeCafe" />
+        </ButtonStyle>
+      </ContentWrapper>
+    </Wrapper>
   );
-}
+};
 
 const ButtonStyle = styled.div`
-  margin-left: 655px;
+  margin-left: 565px;
   margin-top: 40px;
 `;
 
 const Content = styled.div`
-  font-size: 45px;
+  font-size: 40px;
 `;
 
 const ContentWrapper = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
 `;
 
-const Line = styled.div`
-  width: 1px;
-  height: 780px;
-  margin-top: 100px;
-  background-color: ${({ theme }) => theme.color.gray__1};
-`;
-
-const LineWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
-
 const Wrapper = styled.div`
   display: flex;
+  margin-top: 75px;
+  height: 92vh;
+`;
+
+const SearchWarp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px 55px 55px 55px;
+  border-right: 1px solid ${theme.color.gray__1};
+  justify-content: space-between;
+`;
+
+const Top = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
 `;
