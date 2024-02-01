@@ -7,6 +7,7 @@ import textlogo from "../assets/imgs/textLogo.svg";
 import DaySchedule from "../components/schedule/daySchedule";
 import { MyCalender } from "../components/calendar/calendar";
 import { theme } from "../styles/theme";
+import Button from "../components/common/button/Button";
 
 interface ScheduleData {
   [date: string]: {
@@ -59,24 +60,36 @@ export const Schedule = () => {
         <img src={textlogo} />
       </SearchWarp>
       <ContentWrapper>
-        <MyCalender onClickDay={handleDateChange} markedDates={markedDates} />
-        {selectedDate && scheduleData[selectedDate] && (
-          <DaySchedule
-            date={selectedDate}
-            group="ab6ix"
-            schedule={scheduleData[selectedDate]["ab6ix"]}
-          />
-        )}
+        <Content>
+          <MyCalender onClickDay={handleDateChange} markedDates={markedDates} />
+          {selectedDate && scheduleData[selectedDate] && (
+            <DaySchedule
+              date={selectedDate}
+              group="ab6ix"
+              schedule={scheduleData[selectedDate]["ab6ix"]}
+            />
+          )}
+          <Button content="스케줄 신청하기" to="/schedule/write" />
+        </Content>
       </ContentWrapper>
     </Wrapper>
   );
 };
 
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  align-items: flex-end;
+`;
+
 const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 172px;
+  flex-direction: column;
+  gap: 16px;
 
   width: 100%;
 `;

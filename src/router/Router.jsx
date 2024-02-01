@@ -22,6 +22,7 @@ import { DeleteModal } from "../components/common/modal/deleteModal";
 import { ChangeModal } from "../components/common/modal/changeModal";
 import { Schedule } from "../pages/showSchedule";
 import { NotFound } from "../pages/404";
+import { WriteSchedule } from "../pages/writeSchedule";
 
 export const Router = () => {
   return (
@@ -35,6 +36,7 @@ export const Router = () => {
         <Route path="/map" element={<SearchCafe />} />
         <Route path="/map/show" element={<ShowCafe />} />
         <Route path="/schedule" element={<Schedule />} />
+        <Route path="/schedule/write" element={<WriteSchedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
         <Route path="/fanlog/detail" element={<FanlogDetail />} />
         <Route path="/fanlog/write" element={<WriteLog />} />

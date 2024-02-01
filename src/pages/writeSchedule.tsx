@@ -1,3 +1,5 @@
-// 파일 내용...
+import { Header } from "../components/header";
 
-export { };
+export const WriteSchedule = () => {
+  return <Header />;
+};
