@@ -5,6 +5,7 @@ import { Input } from "../components/common/input/Input";
 import Button from "../components/common/button/Button";
 import react, { useState } from 'react'
 import { useDaumPostcodePopup } from 'react-daum-postcode';
+import { useNavigate } from "react-router";
 
 type TextRadioValueType = {
     title: string,
@@ -30,6 +31,7 @@ interface Props {
 export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Props) => {
     const open = useDaumPostcodePopup(scripturl);
     const [addressInputValue, setAddressInputValue] = useState<string>(textRadioValue?.address || '');
+    const [linkInputValue, setLinkInputValue] = useState<string>('');
 
     const handleComplete = (data: any) => {
         let fullAddress = data.address;
@@ -47,7 +49,6 @@ export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Prop
         if (setTextRadioValue) {
             setTextRadioValue((prev) => ({ ...prev, address: fullAddress }));
         }
-
         setAddressInputValue(fullAddress);
     };
 
@@ -59,6 +60,27 @@ export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Prop
     const handleFocus = () => {
         console.log('hihi');
     }
+
+    const handleLinkChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setLinkInputValue(e.target.value);
+    }
+
+    const isLinkValid = () => {
+        const linkRegex = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
+        return linkRegex.test(linkInputValue);
+    }
+
+    const navigate = useNavigate();
+
+    const Submin = () => {
+        if (!isLinkValid()) {
+            alert("링크 형식이 잘못되었습니다");
+            return;
+        }
+
+        alert("신청이 완료되었습니다");
+        navigate("/map");
+    };
 
     return (
         <Wrapper>
@@ -85,14 +107,14 @@ export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Prop
                             width="337px"
                             height="36px"
                             placeholder="http://ab6ix-official.com"
-                            onChange={handleFocus}
+                            onChange={handleLinkChange}
                             label="해당 생일카페 링크를 올려주세요"
-                            bottomMessage="링크 형식이 잘못되었습니다"
+                            bottomMessage={!isLinkValid() ? "링크 형식이 잘못되었습니다" : undefined}
                         />
                     </InputWrapper>
                     <ButtonWrapper>
                         <FindAddressBtn onClick={handleonClickAddressBtn}>주소찾기</FindAddressBtn>
-                        <Button width={105} height={33} content="신청하기" to="/map" />
+                        <Button width={105} height={33} content="신청하기" onClick={Submin} />
                     </ButtonWrapper>
                 </ContentWrapper>
             </Box>
@@ -128,7 +150,6 @@ const InputWrapper = styled.div`
     height: 200px;
     padding: 0 36px;
 `;
-
 
 const ButtonWrapper = styled.div`
     display: flex;

@@ -6,6 +6,7 @@ import Button from "../components/common/button/Button";
 import LogoImg from "../assets/imgs/logo1.svg";
 import CircleImg from "../assets/imgs/circle.svg";
 import PersonImg from "../assets/imgs/profile.svg";
+import { useNavigate } from "react-router";
 
 export function Profile() {
     const [isChangeModalVisible, setChangeModalVisibility] = useState(false);

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 import Search from "../../../assets/imgs/search.svg";
-import Tag from "../tag/Tag";
+import { Tag } from "../tag/Tag";
 
 interface AutoInputProps {
   label?: string;

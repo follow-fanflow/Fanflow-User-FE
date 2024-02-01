@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Button from "../button/Button";
 import { Input } from "../input/Input";
+import { useNavigate } from "react-router";
 
 interface ChangeModalProps {
     onClose: () => void;
@@ -14,6 +15,13 @@ export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeMod
     const handleFocus = () => {
         console.log('');
     }
+    const navigate = useNavigate();
+
+    const handleSubmit = () => {
+        alert("변경이 완료되었습니다");
+        onClose();
+        navigate("/profile")
+    }
 
     return (
         <>
@@ -26,7 +34,7 @@ export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeMod
                         height={38}
                         backgroundColor="#FFA495"
                         content="변경하기"
-                        onClick={onClose}
+                        onClick={handleSubmit}
                     />
                     <Button
                         width={150}
