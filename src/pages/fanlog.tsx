@@ -6,7 +6,7 @@ import { Thumbnail } from "../components/common/log/thumbnail";
 import Button from "../components/common/button/Button";
 import { SelectTag } from "../components/common/tag/selectTag";
 
-export function Fanlog() {
+export const Fanlog = () => {
   return (
     <>
       <Wrapper>
@@ -50,7 +50,7 @@ export function Fanlog() {
       </Warp>
     </>
   );
-}
+};
 
 const Warp = styled.div`
   display: flex;

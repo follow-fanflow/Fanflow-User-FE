@@ -8,7 +8,7 @@ interface DayProps {
   schedule: string[];
 }
 
-const DaySchedule = ({ date, schedule }: DayProps) => {
+export const DaySchedule = ({ date, schedule }: DayProps) => {
   return (
     <Wrapper>
       <DateGroup>
@@ -70,4 +70,3 @@ const ScheduleItem = styled.li`
   margin-bottom: 5px;
 `;
 
-export default DaySchedule;
