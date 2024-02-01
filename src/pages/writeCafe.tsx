@@ -4,24 +4,60 @@ import { SelectTag } from "../components/common/tag/selectTag";
 import { Input } from "../components/common/input/Input";
 import Button from "../components/common/button/Button";
 import react, { useState } from 'react'
-import DaumPostcode from 'react-daum-postcode';
+import { useDaumPostcodePopup } from 'react-daum-postcode';
 
+type TextRadioValueType = {
+    title: string,
+    content: string,
+    price: number,
+    count: number,
+    exchange_product: string,
+    tags: string[],
+    shipping_cost: string,
+    deal_type: string,
+    quality: string,
+    changable: string,
+    address: string,
+    detailAddress: string
+}
 
-export const WriteCafe: React.FC = () => {
-    const [isAddressModalOpen, setAddressModalOpen] = useState(false);
-    const [selectedAddress, setSelectedAddress] = useState<string>('');
+interface Props {
+    scripturl?: string,
+    textRadioValue: TextRadioValueType,
+    setTextRadioValue: React.Dispatch<React.SetStateAction<TextRadioValueType>>
+}
+
+export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Props) => {
+    const open = useDaumPostcodePopup(scripturl);
+    const [addressInputValue, setAddressInputValue] = useState<string>(textRadioValue?.address || '');
+
+    const handleComplete = (data: any) => {
+        let fullAddress = data.address;
+        let extraAddress = "";
+
+        if (data.addressType === "R") {
+            if (data.bname !== "") {
+                extraAddress += data.bname;
+            }
+            if (data.buildingName !== "") {
+                extraAddress += extraAddress !== "" ? `, ${data.buildingName}` : data.buildingName;
+            }
+            fullAddress += extraAddress !== "" ? ` (${extraAddress})` : "";
+        }
+        if (setTextRadioValue) {
+            setTextRadioValue((prev) => ({ ...prev, address: fullAddress }));
+        }
+
+        setAddressInputValue(fullAddress);
+    };
+
+    const handleonClickAddressBtn = (e: React.MouseEvent<HTMLButtonElement>) => {
+        open({ onComplete: handleComplete });
+        e.preventDefault();
+    }
 
     const handleFocus = () => {
         console.log('hihi');
-    }
-
-    const handleFindAddressClick = () => {
-        setAddressModalOpen(true);
-    }
-
-    const handleAddressSelect = (data: any) => {
-        setSelectedAddress(data.address);
-        setAddressModalOpen(false);
     }
 
     return (
@@ -36,7 +72,8 @@ export const WriteCafe: React.FC = () => {
                             width="337px"
                             height="36px"
                             placeholder="주소를 입력해주세요"
-                            onChange={handleFocus}
+                            value={addressInputValue}
+                            onChange={(e) => setAddressInputValue(e.target.value)}
                         />
                         <Input
                             width="337px"
@@ -54,16 +91,9 @@ export const WriteCafe: React.FC = () => {
                         />
                     </InputWrapper>
                     <ButtonWrapper>
-                        <FindAddressBtn onClick={handleFindAddressClick}>주소찾기</FindAddressBtn>
+                        <FindAddressBtn onClick={handleonClickAddressBtn}>주소찾기</FindAddressBtn>
                         <Button width={105} height={33} content="신청하기" to="/map" />
                     </ButtonWrapper>
-                    {isAddressModalOpen && (
-                        <DaumPostcode
-                            onComplete={handleAddressSelect}
-                            autoClose
-                            animation
-                        />
-                    )}
                 </ContentWrapper>
             </Box>
         </Wrapper>
