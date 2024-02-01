@@ -12,16 +12,16 @@ interface ApplyButtonProps {
 
 export const ApplyButton: React.FC<ApplyButtonProps> = ({ width, content, linkTo }) => {
     return (
-        <Button width={width}>
+        <Button width={width} to={linkTo as string}>
             <Content>{content}</Content>
-            <IconWrapper to={linkTo as string}>
+            <IconWrapper >
                 <img src={ButtonImg} alt="Apply Button" />
             </IconWrapper>
         </Button>
     );
 };
 
-const Button = styled.div<{ width?: string }>`
+const Button = styled(Link) <{ width?: string }>`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -29,6 +29,7 @@ const Button = styled.div<{ width?: string }>`
     height: 38px;
     border-radius: 30px;
     background-color: ${({ theme }) => theme.color.zero};
+    text-decoration: none;
 `;
 
 const Content = styled.div`
@@ -37,7 +38,7 @@ const Content = styled.div`
     font-size: 15px;
 `;
 
-const IconWrapper = styled(Link)`
+const IconWrapper = styled.div`
     display: flex;
     align-items: center;
 `;

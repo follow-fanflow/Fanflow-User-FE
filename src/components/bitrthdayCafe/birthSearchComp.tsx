@@ -2,18 +2,22 @@ import { Input } from "../common/input/Input";
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Logo from "../../assets/imgs/logo1.svg";
-import SearchIcon from "../../assets/imgs/search.svg";
 import TextLogo from "../../assets/imgs/textLogo.svg";
-import { SearchTag } from "../common/tag/searchTag";
+import { AutoInput } from "../common/input/AutoInput";
 
 export const BirthSearchComp = () => {
+  const suggest = ["조슈아", "신라면", "지젤", "자비스~", "신예찬"];
 
   return (
     <div>
       <SearchWrapper>
         <LogoImg src={Logo} alt="Logo"></LogoImg>
         <InputWrapper>
-          <SearchTag content="내 최애 생일카페가 어디어디에 있나?" />
+          <AutoInput
+            suggestions={suggest}
+            placeholder="멤버명"
+            label="내 최애 생일카페가 어디어디에 있나?"
+          />
         </InputWrapper>
         <LogoImg2 src={TextLogo} alt="textLogo"></LogoImg2>
       </SearchWrapper>

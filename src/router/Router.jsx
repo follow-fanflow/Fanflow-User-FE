@@ -23,6 +23,7 @@ import { ChangeModal } from "../components/common/modal/changeModal";
 import { Schedule } from "../pages/showSchedule";
 import { NotFound } from "../pages/404";
 import { ApplyButton } from "../components/common/button/applyButton";
+import { WriteCafe } from "../pages/writeCafe";
 
 export const Router = () => {
   return (
@@ -52,6 +53,7 @@ export const Router = () => {
         <Route path="/deleteModal" element={<DeleteModal />} />
         <Route path="/changeModal" element={<ChangeModal />} />
         <Route path="/applyBtn" element={<ApplyButton />} />
+        <Route path="/map/writeCafe" element={<WriteCafe />} />
       </Routes>
     </BrowserRouter>
   );
