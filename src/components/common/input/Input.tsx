@@ -36,8 +36,8 @@ export const Input = ({
 
   return (
     <Warp>
+      <Label htmlFor={label}>{label}</Label>
       <Container style={{ width }}>
-        <Label htmlFor={label}>{label}</Label>
         <InputWrap>
           {type === "icon" && <Icons>{Icon}</Icons>}
           <LInput
