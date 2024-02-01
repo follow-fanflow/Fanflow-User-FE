@@ -7,7 +7,7 @@ import textlogo from "../assets/imgs/textLogo.svg";
 import DaySchedule from "../components/schedule/daySchedule";
 import { MyCalender } from "../components/calendar/calendar";
 import { theme } from "../styles/theme";
-import Button from "../components/common/button/Button";
+import { ApplyButton } from "../components/common/button/applyButton";
 
 interface ScheduleData {
   [date: string]: {
@@ -69,7 +69,7 @@ export const Schedule = () => {
               schedule={scheduleData[selectedDate]["ab6ix"]}
             />
           )}
-          <Button content="스케줄 신청하기" to="/schedule/write" />
+          <ApplyButton content="스케줄 신청하기" linkTo="/schedule/write" />
         </Content>
       </ContentWrapper>
     </Wrapper>

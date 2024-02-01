@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 import heart from "../../../assets/imgs/noheart.svg";
 import checkHeart from "../../../assets/imgs/checkHeart.svg";
+import { theme } from "../../../styles/theme";
+import { DeleteModal } from "../modal/deleteModal";
 
 interface ThumbnailProps {
   img: string;
@@ -18,8 +20,8 @@ export const Thumbnail = ({ img, title, detail }: ThumbnailProps) => {
   };
 
   return (
-    <Warp onClick={handleThumbnailClick}>
-      <ImgWarp>
+    <Warp>
+      <ImgWarp onClick={handleThumbnailClick}>
         <img src={img} alt="" width={175} height={216} />
       </ImgWarp>
       <Heart onClick={() => setHeart(!noheart)}>
@@ -29,8 +31,8 @@ export const Thumbnail = ({ img, title, detail }: ThumbnailProps) => {
           <img src={heart} alt="Eyes Open" />
         )}
       </Heart>
-      <Title>{title}</Title>
-      <Detail>{detail}</Detail>
+      <Title onClick={handleThumbnailClick}>{title}</Title>
+      <Detail onClick={handleThumbnailClick}>{detail}</Detail>
     </Warp>
   );
 };
@@ -40,6 +42,8 @@ const Warp = styled.div`
   flex-direction: column;
   position: relative;
   cursor: pointer;
+  :hover {
+  }
 `;
 
 const ImgWarp = styled.div`

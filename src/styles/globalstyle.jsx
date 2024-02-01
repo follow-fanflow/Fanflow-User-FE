@@ -13,4 +13,10 @@ export const GlobalStyle = createGlobalStyle`
         outline: none;
         resize: none;
     }
+    ::-webkit-calendar-picker-indicator {
+            position: absolute;
+            top: 0;
+            padding-left: 500px;
+            height: 100%;
+        }
 `;
