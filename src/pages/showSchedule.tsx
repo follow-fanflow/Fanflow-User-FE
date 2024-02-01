@@ -61,14 +61,19 @@ export const Schedule = () => {
       </SearchWarp>
       <ContentWrapper>
         <Content>
-          <MyCalender onClickDay={handleDateChange} markedDates={markedDates} />
-          {selectedDate && scheduleData[selectedDate] && (
-            <DaySchedule
-              date={selectedDate}
-              group="ab6ix"
-              schedule={scheduleData[selectedDate]["ab6ix"]}
+          <Fix>
+            <MyCalender
+              onClickDay={handleDateChange}
+              markedDates={markedDates}
             />
-          )}
+            {selectedDate && scheduleData[selectedDate] && (
+              <DaySchedule
+                date={selectedDate}
+                group="ab6ix"
+                schedule={scheduleData[selectedDate]["ab6ix"]}
+              />
+            )}
+          </Fix>
           <ApplyButton content="스케줄 신청하기" linkTo="/schedule/write" />
         </Content>
       </ContentWrapper>
@@ -76,10 +81,15 @@ export const Schedule = () => {
   );
 };
 
+const Fix = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const Content = styled.div`
   display: flex;
-  flex-direction: column;
   gap: 16px;
+  flex-direction: column;
   justify-content: center;
   align-items: flex-end;
 `;
