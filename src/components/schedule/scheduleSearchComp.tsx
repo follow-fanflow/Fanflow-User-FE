@@ -12,7 +12,7 @@ export const ScheduleSearchComp = () => {
       <SearchWrapper>
         <LogoImg src={Logo} alt="Logo"></LogoImg>
         <InputWrapper>
-          <SearchTag content="스케줄이 궁금한 아이돌" />
+          <SearchTag idol="스케줄이 궁금한 아이돌" to="/d/d" />
         </InputWrapper>
         <LogoImg2 src={TextLogo} alt="textLogo"></LogoImg2>
       </SearchWrapper>
@@ -44,4 +44,3 @@ const SearchWrapper = styled.div`
   align-items: center;
   margin-top: 70px;
 `;
-

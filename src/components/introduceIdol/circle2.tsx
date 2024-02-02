@@ -4,7 +4,7 @@ import ExampleImg from "../../assets/imgs/Lucy.svg";
 import Seventeen from "../../assets/imgs/seventeen.svg";
 import Lucy from "../../assets/imgs/Lucy.svg";
 import txt from "../../assets/imgs/txt.svg";
-import ab6ix from "../../assets/imgs/ab6ix.svg";
+import ab6ix from "../../assets/imgs/idol/ab6ix/ab6ix.svg";
 import rize from "../../assets/imgs/rize.svg";
 import itzy from "../../assets/imgs/itzy.svg";
 import nct127 from "../../assets/imgs/nct127.svg";
@@ -18,118 +18,117 @@ import theboyz from "../../assets/imgs/theboyz.svg";
 import idle from "../../assets/imgs/idle.svg";
 import aespa from "../../assets/imgs/aespa.svg";
 
-
 import { Link } from "react-router-dom";
 
 export const Circles: React.FC = () => {
-    return (
-        <CircleWrapper>
-            <CircleContainer>
-                <Circle to='/introduce/group'>
-                    <Img src={Seventeen}></Img>
-                    <Overlay>
-                        <Text>SEVENTEEN</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={txt}></Img>
-                    <Overlay>
-                        <Text>TOMORROW X TOGETHER</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={ab6ix}></Img>
-                    <Overlay>
-                        <Text>AB6IX</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={Lucy}></Img>
-                    <Overlay>
-                        <Text>LUCY</Text>
-                    </Overlay>
-                </Circle>
-            </CircleContainer>
-            <CircleContainer>
-                <Circle to='/introduce/group'>
-                    <Img src={rize}></Img>
-                    <Overlay>
-                        <Text>RIZE</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={itzy}></Img>
-                    <Overlay>
-                        <Text>ITZY</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={nct127}></Img>
-                    <Overlay>
-                        <Text>NCT 127</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={nctdream}></Img>
-                    <Overlay>
-                        <Text>NCT DREAM</Text>
-                    </Overlay>
-                </Circle>
-            </CircleContainer>
-            <CircleContainer>
-                <Circle to='/introduce/group'>
-                    <Img src={monstax}></Img>
-                    <Overlay>
-                        <Text>MONSTA X</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={ive}></Img>
-                    <Overlay>
-                        <Text>IVE</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={lesserafim}></Img>
-                    <Overlay>
-                        <Text>LE SSERAFIM</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={newjeans}></Img>
-                    <Overlay>
-                        <Text>NEWJEANS</Text>
-                    </Overlay>
-                </Circle>
-            </CircleContainer>
-            <CircleContainer>
-                <Circle to='/introduce/group'>
-                    <Img src={bts}></Img>
-                    <Overlay>
-                        <Text>BTS</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={theboyz}></Img>
-                    <Overlay>
-                        <Text>THE BOYZ</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={idle}></Img>
-                    <Overlay>
-                        <Text>IDLE</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={aespa}></Img>
-                    <Overlay>
-                        <Text>AESPA</Text>
-                    </Overlay>
-                </Circle>
-            </CircleContainer>
-        </CircleWrapper>
-    );
+  return (
+    <CircleWrapper>
+      <CircleContainer>
+        <Circle to="/introduce/group">
+          <Img src={Seventeen}></Img>
+          <Overlay>
+            <Text>SEVENTEEN</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={txt}></Img>
+          <Overlay>
+            <Text>TOMORROW X TOGETHER</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={ab6ix}></Img>
+          <Overlay>
+            <Text>AB6IX</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={Lucy}></Img>
+          <Overlay>
+            <Text>LUCY</Text>
+          </Overlay>
+        </Circle>
+      </CircleContainer>
+      <CircleContainer>
+        <Circle to="/introduce/group">
+          <Img src={rize}></Img>
+          <Overlay>
+            <Text>RIZE</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={itzy}></Img>
+          <Overlay>
+            <Text>ITZY</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={nct127}></Img>
+          <Overlay>
+            <Text>NCT 127</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={nctdream}></Img>
+          <Overlay>
+            <Text>NCT DREAM</Text>
+          </Overlay>
+        </Circle>
+      </CircleContainer>
+      <CircleContainer>
+        <Circle to="/introduce/group">
+          <Img src={monstax}></Img>
+          <Overlay>
+            <Text>MONSTA X</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={ive}></Img>
+          <Overlay>
+            <Text>IVE</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={lesserafim}></Img>
+          <Overlay>
+            <Text>LE SSERAFIM</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={newjeans}></Img>
+          <Overlay>
+            <Text>NEWJEANS</Text>
+          </Overlay>
+        </Circle>
+      </CircleContainer>
+      <CircleContainer>
+        <Circle to="/introduce/group">
+          <Img src={bts}></Img>
+          <Overlay>
+            <Text>BTS</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={theboyz}></Img>
+          <Overlay>
+            <Text>THE BOYZ</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={idle}></Img>
+          <Overlay>
+            <Text>IDLE</Text>
+          </Overlay>
+        </Circle>
+        <Circle to="/introduce/group">
+          <Img src={aespa}></Img>
+          <Overlay>
+            <Text>AESPA</Text>
+          </Overlay>
+        </Circle>
+      </CircleContainer>
+    </CircleWrapper>
+  );
 };
 
 const CircleWrapper = styled.div`
@@ -168,7 +167,7 @@ const Overlay = styled.div`
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .2s ease;
+  transition: 0.2s ease;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;

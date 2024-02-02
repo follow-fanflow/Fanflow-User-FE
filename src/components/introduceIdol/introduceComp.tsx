@@ -2,6 +2,7 @@ import styled from "styled-components";
 import React from "react";
 import BackBtn from "../../assets/imgs/backBtn.svg";
 import { Link } from "react-router-dom";
+import { Header } from "../header";
 
 interface IntroduceProp {
   member: string[];
@@ -24,6 +25,7 @@ export const IntroduceComp = ({
 }: IntroduceProp) => {
   return (
     <Wrapper>
+      <Header />
       <ButtonWrapper to="/introduce">
         <Button src={BackBtn}></Button>
       </ButtonWrapper>
