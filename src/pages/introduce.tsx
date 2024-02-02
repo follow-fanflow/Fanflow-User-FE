@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React from "react";
 import { Header } from "../components/header";
-import Lucy from "../assets/imgs/Lucy.svg";
+import Lucy from "../assets/imgs/idol/lesserafim/lesserafim.svg";
 import BackBtn from "../assets/imgs/backBtn.svg";
-import MemberPicture from "../assets/imgs/yechan.svg";
+import MemberPicture from "../assets/imgs/idol/lesserafim/김채원.svg";
 import { Link } from "react-router-dom";
 
 export function Introduce() {
