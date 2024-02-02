@@ -24,7 +24,7 @@ export const Circles: React.FC = () => {
     return (
         <CircleWrapper>
             <CircleContainer>
-                <Circle to='/introduce/group'>
+                <Circle to='/introduce/group/seventeen'>
                     <Img src={Seventeen}></Img>
                     <Overlay>
                         <Text>SEVENTEEN</Text>

@@ -26,6 +26,7 @@ import { WriteSchedule } from "../pages/writeSchedule";
 import { ApplyButton } from "../components/common/button/applyButton";
 import { WriteCafe } from "../pages/writeCafe";
 import { AB6IX } from "../pages/introduce/ab6ix";
+import { Seventeen } from "../pages/introduce/seventeen";
 
 export const Router = () => {
   return (
@@ -46,6 +47,7 @@ export const Router = () => {
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/introduce/group" element={<Introduce />} />
         <Route path="/introduce/group/AB6IX" element={<AB6IX />} />
+        <Route path="/introduce/group/seventeen" element={<Seventeen />} />
         <Route path="/input" element={<Input />} />
         <Route path="/mapApi" element={<Map />} />
         <Route path="/footer" element={<Footer />} />
