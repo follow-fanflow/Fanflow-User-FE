@@ -27,6 +27,20 @@ import { ApplyButton } from "../components/common/button/applyButton";
 import { WriteCafe } from "../pages/writeCafe";
 import { AB6IX } from "../pages/introduce/ab6ix";
 import { Seventeen } from "../pages/introduce/seventeen";
+import { TxT } from "../pages/introduce/txt";
+import { Lucy } from "../pages/introduce/lucy";
+import { Rize } from "../pages/introduce/rize";
+import { Itzy } from "../pages/introduce/itzy";
+import { Nct127 } from "../pages/introduce/nct127";
+import { Aespa } from "../pages/introduce/aespa";
+import { Bts } from "../pages/introduce/bts";
+import { Idle } from "../pages/introduce/idle";
+import { Ive } from "../pages/introduce/ive";
+import { Lesserafim } from "../pages/introduce/lesserafim";
+import { MonstaX } from "../pages/introduce/monstax";
+import { NctDream } from "../pages/introduce/nctdream";
+import { Newjeans } from "../pages/introduce/newjeans";
+import { TheBoyz } from "../pages/introduce/theboyz";
 
 export const Router = () => {
   return (
@@ -46,8 +60,22 @@ export const Router = () => {
         <Route path="/fanlog/write" element={<WriteLog />} />
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/introduce/group" element={<Introduce />} />
-        <Route path="/introduce/group/AB6IX" element={<AB6IX />} />
+        <Route path="/introduce/group/ab6ix" element={<AB6IX />} />
         <Route path="/introduce/group/seventeen" element={<Seventeen />} />
+        <Route path="/introduce/group/txt" element={<TxT />} />
+        <Route path="/introduce/group/lucy" element={<Lucy />} />
+        <Route path="/introduce/group/rize" element={<Rize />} />
+        <Route path="/introduce/group/itzy" element={<Itzy />} />
+        <Route path="/introduce/group/nct127" element={<Nct127 />} />
+        <Route path="/introduce/group/nctdream" element={<NctDream />} />
+        <Route path="/introduce/group/ive" element={<Ive />} />
+        <Route path="/introduce/group/idle" element={<Idle />} />
+        <Route path="/introduce/group/aespa" element={<Aespa />} />
+        <Route path="/introduce/group/bts" element={<Bts />} />
+        <Route path="/introduce/group/lesserafim" element={<Lesserafim />} />
+        <Route path="/introduce/group/monstax" element={<MonstaX />} />
+        <Route path="/introduce/group/newjeans" element={<Newjeans />} />
+        <Route path="/introduce/group/theboyz" element={<TheBoyz />} />
         <Route path="/input" element={<Input />} />
         <Route path="/mapApi" element={<Map />} />
         <Route path="/footer" element={<Footer />} />
