@@ -43,7 +43,7 @@ export const Seventeen = () => {
                 group="SEVENTEEN"
                 groupImg={seventeen}
                 memberImg={memberImg}
-                debut="2015년도"
+                debut="2015년 데뷔"
                 detail="세븐틴은 플레디스 소속으로 2015년 5월 26일에 데뷔한 13인조 보이 그룹이다. 그룹 내에는 퍼포먼스, 보컬, 힙합팀이 존재한다. '세븐틴'이라는 팀명은 팀 인원 13 + 3개의 유닛, 하나의 팀 +1로, 13+3+1=17 이란 뜻이다. 세븐틴의 팬덤명인 CARAT(캐럿)은 보석의 질량 단위로 숫자가 커질수록 보석의 가치도 높아지는데, 이것을 팬덤에 비유하여 세븐틴이라는 다이아몬드를 빛내주는 존재이자, 사랑해주는 팬이 많아질수록 팀의 가치고 높아진다는 의미를 함께 담았다. "
                 memberBirthday={memberBirshday}
             />

@@ -23,16 +23,16 @@ export const Circles: React.FC = () => {
     return (
         <CircleWrapper>
             <CircleContainer>
-                <Circle to='/introduce/group/seventeen'>
-                    <Img src={Seventeen}></Img>
-                    <Overlay>
-                        <Text>SEVENTEEN</Text>
-                    </Overlay>
-                </Circle>
                 <Circle to='/introduce/group/txt'>
                     <Img src={txt}></Img>
                     <Overlay>
                         <Text>TOMORROW X TOGETHER</Text>
+                    </Overlay>
+                </Circle>
+                <Circle to='/introduce/group/seventeen'>
+                    <Img src={Seventeen}></Img>
+                    <Overlay>
+                        <Text>SEVENTEEN</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group/ab6ix'>
