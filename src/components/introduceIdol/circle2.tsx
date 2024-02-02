@@ -17,7 +17,6 @@ import theboyz from "../../assets/imgs/idol/theboyz/theboyz.svg";
 import idle from "../../assets/imgs/idol/idle/idle.svg";
 import aespa from "../../assets/imgs/idol/aespa/aespa.svg";
 
-
 import { Link } from "react-router-dom";
 
 export const Circles: React.FC = () => {
@@ -167,7 +166,7 @@ const Overlay = styled.div`
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: .2s ease;
+  transition: 0.2s ease;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
