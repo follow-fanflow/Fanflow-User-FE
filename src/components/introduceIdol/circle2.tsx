@@ -1,22 +1,21 @@
 import React from "react";
 import { styled } from "styled-components";
-import ExampleImg from "../../assets/imgs/Lucy.svg";
-import Seventeen from "../../assets/imgs/seventeen.svg";
-import Lucy from "../../assets/imgs/Lucy.svg";
-import txt from "../../assets/imgs/txt.svg";
+import Seventeen from "../../assets/imgs/idol/seventeen/seventeen.svg";
+import Lucy from "../../assets/imgs/idol/lucy/Lucy.svg";
+import txt from "../../assets/imgs/idol/txt/txt.svg";
 import ab6ix from "../../assets/imgs/idol/ab6ix/ab6ix.svg";
-import rize from "../../assets/imgs/rize.svg";
-import itzy from "../../assets/imgs/itzy.svg";
-import nct127 from "../../assets/imgs/nct127.svg";
-import nctdream from "../../assets/imgs/nctdream.svg";
-import monstax from "../../assets/imgs/monstax.svg";
-import ive from "../../assets/imgs/ive.svg";
-import lesserafim from "../../assets/imgs/lesserafim.svg";
-import newjeans from "../../assets/imgs/newjeans.svg";
-import bts from "../../assets/imgs/bts.svg";
-import theboyz from "../../assets/imgs/theboyz.svg";
-import idle from "../../assets/imgs/idle.svg";
-import aespa from "../../assets/imgs/aespa.svg";
+import rize from "../../assets/imgs/idol/rize/rize.svg";
+import itzy from "../../assets/imgs/idol/itzy/itzy.svg";
+import nct127 from "../../assets/imgs/idol/nct127/nct127.svg";
+import nctdream from "../../assets/imgs/idol/nctdream/nctdream.svg";
+import monstax from "../../assets/imgs/idol/monstax/monstax.svg";
+import ive from "../../assets/imgs/idol/ive/ive.svg";
+import lesserafim from "../../assets/imgs/idol/lesserafim/lesserafim.svg";
+import newjeans from "../../assets/imgs/idol/newjeans/newjeans.svg";
+import bts from "../../assets/imgs/idol/bts/bts.svg";
+import theboyz from "../../assets/imgs/idol/theboyz/theboyz.svg";
+import idle from "../../assets/imgs/idol/idle/idle.svg";
+import aespa from "../../assets/imgs/idol/aespa/aespa.svg";
 
 import { Link } from "react-router-dom";
 
