@@ -122,6 +122,7 @@ export function Home() {
               content="아티스트 보기"
               width={150}
               height={44}
+              to="/introduce"
               buttonStyle={{
                 backgroundColor: "#f96c85",
               }}
@@ -131,6 +132,8 @@ export function Home() {
               content="팬로그보기"
               width={150}
               height={44}
+              borderColor="#f96c85"
+              to="/fanlog"
               buttonStyle={{
                 backgroundColor: "#00000000",
                 color: "#f96c85",
@@ -245,7 +248,13 @@ const Last = styled.div`
 
 const Img = styled.div``;
 
-const ButtonWarp = styled.div``;
+const ButtonWarp = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 320px;
+  margin-top: 10px;
+`;
 const Warp = styled.div`
   display: flex;
   flex-direction: column;
