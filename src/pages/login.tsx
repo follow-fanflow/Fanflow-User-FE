@@ -28,7 +28,10 @@ export function Login() {
       </CommentWrapper>
       <LoginWrapper>
         <Logo src={Logoimg}></Logo>
-        <Title>로그인</Title>
+        <TextWrapper>
+          <Title>로그인</Title>
+          <Error>※계정을 찾을 수 없습니다</Error>
+        </TextWrapper>
         <LoginBox>
           <IdWrapper>
             <IdIcon src={PersonIcon}></IdIcon>
@@ -51,6 +54,19 @@ export function Login() {
     </Wrapper>
   );
 }
+
+const TextWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: 60px;
+`;
+
+const Error = styled.div`
+  color: ${({ theme }) => theme.color.red_1};
+  font-size: 10px;
+`;
 
 const BottomRight = styled.div`
   width: 100%;
@@ -173,8 +189,6 @@ const LoginBox = styled.div`
 
 const Title = styled.div`
   font-size: 23px;
-  margin-top: 30px;
-  margin-bottom: 70px;
 `;
 
 const Logo = styled.img`

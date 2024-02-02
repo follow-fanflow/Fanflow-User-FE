@@ -1,6 +1,24 @@
 import React from "react";
 import { styled } from "styled-components";
 import ExampleImg from "../../assets/imgs/Lucy.svg";
+import Seventeen from "../../assets/imgs/seventeen.svg";
+import Lucy from "../../assets/imgs/Lucy.svg";
+import txt from "../../assets/imgs/txt.svg";
+import ab6ix from "../../assets/imgs/ab6ix.svg";
+import rize from "../../assets/imgs/rize.svg";
+import itzy from "../../assets/imgs/itzy.svg";
+import nct127 from "../../assets/imgs/nct127.svg";
+import nctdream from "../../assets/imgs/nctdream.svg";
+import monstax from "../../assets/imgs/monstax.svg";
+import ive from "../../assets/imgs/ive.svg";
+import lesserafim from "../../assets/imgs/lesserafim.svg";
+import newjeans from "../../assets/imgs/newjeans.svg";
+import bts from "../../assets/imgs/bts.svg";
+import theboyz from "../../assets/imgs/theboyz.svg";
+import idle from "../../assets/imgs/idle.svg";
+import aespa from "../../assets/imgs/aespa.svg";
+
+
 import { Link } from "react-router-dom";
 
 export const Circles: React.FC = () => {
@@ -8,51 +26,25 @@ export const Circles: React.FC = () => {
         <CircleWrapper>
             <CircleContainer>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={Seventeen}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>SEVENTEEN</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={txt}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>TOMORROW X TOGETHER</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={ab6ix}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>AB6IX</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
-                    <Overlay>
-                        <Text>LUCY</Text>
-                    </Overlay>
-                </Circle>
-            </CircleContainer>
-            <CircleContainer>
-                <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
-                    <Overlay>
-                        <Text>LUCY</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
-                    <Overlay>
-                        <Text>LUCY</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
-                    <Overlay>
-                        <Text>LUCY</Text>
-                    </Overlay>
-                </Circle>
-                <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={Lucy}></Img>
                     <Overlay>
                         <Text>LUCY</Text>
                     </Overlay>
@@ -60,53 +52,79 @@ export const Circles: React.FC = () => {
             </CircleContainer>
             <CircleContainer>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={rize}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>RIZE</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={itzy}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>ITZY</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={nct127}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>NCT 127</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={nctdream}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>NCT DREAM</Text>
                     </Overlay>
                 </Circle>
             </CircleContainer>
             <CircleContainer>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={monstax}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>MONSTA X</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={ive}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>IVE</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={lesserafim}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>LE SSERAFIM</Text>
                     </Overlay>
                 </Circle>
                 <Circle to='/introduce/group'>
-                    <Img src={ExampleImg}></Img>
+                    <Img src={newjeans}></Img>
                     <Overlay>
-                        <Text>LUCY</Text>
+                        <Text>NEWJEANS</Text>
+                    </Overlay>
+                </Circle>
+            </CircleContainer>
+            <CircleContainer>
+                <Circle to='/introduce/group'>
+                    <Img src={bts}></Img>
+                    <Overlay>
+                        <Text>BTS</Text>
+                    </Overlay>
+                </Circle>
+                <Circle to='/introduce/group'>
+                    <Img src={theboyz}></Img>
+                    <Overlay>
+                        <Text>THE BOYZ</Text>
+                    </Overlay>
+                </Circle>
+                <Circle to='/introduce/group'>
+                    <Img src={idle}></Img>
+                    <Overlay>
+                        <Text>IDLE</Text>
+                    </Overlay>
+                </Circle>
+                <Circle to='/introduce/group'>
+                    <Img src={aespa}></Img>
+                    <Overlay>
+                        <Text>AESPA</Text>
                     </Overlay>
                 </Circle>
             </CircleContainer>
