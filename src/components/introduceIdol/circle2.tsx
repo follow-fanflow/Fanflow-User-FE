@@ -31,6 +31,14 @@ export const Circles: React.FC = () => {
                         <Text>LUCY</Text>
                     </Overlay>
                 </Circle>
+            </CircleContainer>
+            <CircleContainer>
+                <Circle to='/introduce/group'>
+                    <Img src={ExampleImg}></Img>
+                    <Overlay>
+                        <Text>LUCY</Text>
+                    </Overlay>
+                </Circle>
                 <Circle to='/introduce/group'>
                     <Img src={ExampleImg}></Img>
                     <Overlay>
@@ -75,6 +83,14 @@ export const Circles: React.FC = () => {
                         <Text>LUCY</Text>
                     </Overlay>
                 </Circle>
+            </CircleContainer>
+            <CircleContainer>
+                <Circle to='/introduce/group'>
+                    <Img src={ExampleImg}></Img>
+                    <Overlay>
+                        <Text>LUCY</Text>
+                    </Overlay>
+                </Circle>
                 <Circle to='/introduce/group'>
                     <Img src={ExampleImg}></Img>
                     <Overlay>
@@ -108,8 +124,8 @@ const CircleContainer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 1321px;
-  margin: 15px;
+  width: 950px;
+  margin: 20px;
 `;
 
 const Circle = styled(Link)`
@@ -121,8 +137,8 @@ const Circle = styled(Link)`
 
 const Img = styled.img`
   display: block;
-  width: 150px;
-  height: 150px;
+  width: 190px;
+  height: 190px;
 `;
 
 const Overlay = styled.div`

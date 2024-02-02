@@ -46,7 +46,7 @@ const Wrapper = styled.div`
     flex-direction: column;
     margin-top: 75px;
     justify-content: space-between;
-    width: 1321px;
+    align-items: center;
 `;
 
 const CircleWrapper = styled.div`
@@ -57,5 +57,5 @@ const CircleWrapper = styled.div`
 
 const GroupCount = styled.div`
     font-size: 23px;
-    padding: 100px 0px 50px 0px;
+    padding: 100px 0px 20px 0px;
 `;
