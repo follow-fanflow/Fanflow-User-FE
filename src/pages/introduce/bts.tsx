@@ -4,7 +4,7 @@ import bts from "../../assets/imgs/idol/bts/bts.svg";
 export const Bts = () => {
     const member = ["진", "슈가", "제이홉", "RM", "지민", "뷔", "정국"];
     const memberImg = [
-        "",
+        "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/e5871135109d7f8504860c34aa6890bee1a3b53f/src/assets/imgs/idol/bts/%EC%A7%84.svg",
         "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/2735f64b2ad961d50de1b2b5428f28b51291785c/src/assets/imgs/idol/bts/%EC%8A%88%EA%B0%80.svg",
         "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/2735f64b2ad961d50de1b2b5428f28b51291785c/src/assets/imgs/idol/bts/%EC%A0%9C%EC%9D%B4%ED%99%89.svg",
         "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/2735f64b2ad961d50de1b2b5428f28b51291785c/src/assets/imgs/idol/bts/%EC%95%8C%EC%97%A0.svg",

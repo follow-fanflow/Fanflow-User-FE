@@ -4,7 +4,7 @@ import lucy from "../../assets/imgs/idol/lucy/Lucy.svg";
 export const Lucy = () => {
     const member = ["신예찬", "조원상", "신광일", "최상엽"];
     const memberImg = [
-        "",
+        "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/e5871135109d7f8504860c34aa6890bee1a3b53f/src/assets/imgs/idol/lucy/%EC%8B%A0%EC%98%88%EC%B0%AC.svg",
         "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/2735f64b2ad961d50de1b2b5428f28b51291785c/src/assets/imgs/idol/lucy/%EC%A1%B0%EC%9B%90%EC%83%81.svg",
         "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/2735f64b2ad961d50de1b2b5428f28b51291785c/src/assets/imgs/idol/lucy/%EC%8B%A0%EA%B4%91%EC%9D%BC.svg",
         "https://raw.githubusercontent.com/follow-fanflow/Fanflow-User-FE/2735f64b2ad961d50de1b2b5428f28b51291785c/src/assets/imgs/idol/lucy/%EC%B5%9C%EC%83%81%EC%97%BD.svg"
