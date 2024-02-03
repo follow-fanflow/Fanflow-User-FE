@@ -18,8 +18,8 @@ export const SearchCafe = () => {
           <img src={Logo} alt="" width={80} />
           <AutoInput
             suggestions={suggest}
-            placeholder="그룹명"
-            label="스케줄이 궁금한 아이돌"
+            placeholder="멤버명"
+            label="내 최애 생일카페가 어디어디에 있나?"
           />
         </Top>
         <img src={textlogo} />
