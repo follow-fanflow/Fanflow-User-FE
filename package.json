@@ -1,5 +1,5 @@
 {
-  "name": "fanflow-user-fn",
+  "name": "fanflow-user-fe",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
