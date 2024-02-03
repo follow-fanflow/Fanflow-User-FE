@@ -1,22 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 import { Header } from "../components/header";
-import { BirthSearchComp } from "../components/bitrthdayCafe/birthSearchComp";
+import { AutoInput } from "../components/common/input/AutoInput";
+import Logo from "../assets/imgs/logo1.svg";
+import textlogo from "../assets/imgs/textLogo.svg";
+import { theme } from "../styles/theme";
 import Map from "../components/bitrthdayCafe/map";
 
 export const ShowCafe = () => {
+    const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];
+
     return (
-        <>
+        <Wrapper>
             <Header />
-            <Wrapper>
-                <BirthSearchComp />
-                <ContentWrapper>
-                    <Map />
-                </ContentWrapper>
-            </Wrapper>
-        </>
+            <SearchWarp>
+                <Top>
+                    <img src={Logo} alt="" width={80} />
+                    <AutoInput
+                        suggestions={suggest}
+                        placeholder="그룹명"
+                        label="스케줄이 궁금한 아이돌"
+                    />
+                </Top>
+                <img src={textlogo} />
+            </SearchWarp>
+            <ContentWrapper>
+                <Map />
+            </ContentWrapper>
+        </Wrapper>
     );
-}
+};
 
 const ContentWrapper = styled.div`
   display: flex;
@@ -27,4 +40,22 @@ const ContentWrapper = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  margin-top: 75px;
+  height: 91vh;
+`;
+
+const SearchWarp = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 130px 55px 55px 55px;
+  border-right: 1px solid ${theme.color.gray__1};
+  justify-content: space-between;
+`;
+
+const Top = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  align-items: center;
 `;

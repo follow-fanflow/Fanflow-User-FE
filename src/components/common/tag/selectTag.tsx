@@ -64,11 +64,6 @@ const BtnSelect = styled.button`
   height: 30px;
   color: white;
   font-size: 15px;
-
-  /* &:hover,
-  &:focus {
-    필요하면 나중에 씀 ㅇㅇ
-  } */
 `;
 
 const ListMember = styled.ul`
