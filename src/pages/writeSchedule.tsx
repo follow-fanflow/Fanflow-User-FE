@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { theme } from "../styles/theme";
 import { SelectTag } from "../components/common/tag/selectTag";
 import { Input } from "../components/common/input/Input";
-import calendar from "../assets/imgs/calendar.svg";
 import Button from "../components/common/button/Button";
 import { useNavigate } from "react-router-dom";
 

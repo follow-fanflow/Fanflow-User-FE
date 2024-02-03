@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/header";
@@ -36,7 +36,6 @@ export const FanlogDetail = () => {
           </Back>
           <Content>
             <Left>
-              {/*detail.img*/}
               <img
                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiz6yQKtOoA5sHW1Jcyq83BoXp9xu87nzJbHi8Gp2log&s"
                 alt=""

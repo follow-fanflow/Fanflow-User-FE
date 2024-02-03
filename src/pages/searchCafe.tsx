@@ -6,7 +6,6 @@ import Logo from "../assets/imgs/logo1.svg";
 import textlogo from "../assets/imgs/textLogo.svg";
 import { theme } from "../styles/theme";
 import { ApplyButton } from "../components/common/button/applyButton";
-import App from "../App";
 
 export const SearchCafe = () => {
   const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];

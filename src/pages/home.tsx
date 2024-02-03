@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Logo from "../assets/imgs/logo1.svg";
-import search from "../assets/imgs/search.svg";
-import { Input } from "../components/common/input/Input";
 import { Header } from "../components/header";
 import { Speech } from "../components/common/home/speeechbubble";
 import { Circle } from "../components/common/home/circle";
