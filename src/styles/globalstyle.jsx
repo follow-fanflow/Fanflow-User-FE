@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-family: "SOYOMapleBoldTTF";
         user-select: none;
+        ::-webkit-scrollbar {
+            width: 0px;
+        }
     }
 
     input, textarea, button {

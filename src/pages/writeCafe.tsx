@@ -3,9 +3,10 @@ import styled from "styled-components";
 import { SelectTag } from "../components/common/tag/selectTag";
 import { Input } from "../components/common/input/Input";
 import Button from "../components/common/button/Button";
-import react, { useState } from 'react'
+import { useState } from 'react'
 import { useDaumPostcodePopup } from 'react-daum-postcode';
 import { useNavigate } from "react-router";
+import axios from "axios";
 
 type TextRadioValueType = {
     title: string,
@@ -31,6 +32,7 @@ interface Props {
 export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Props) => {
     const open = useDaumPostcodePopup(scripturl);
     const [addressInputValue, setAddressInputValue] = useState<string>(textRadioValue?.address || '');
+    const [cafeNameInputValue, setCafeNameInputValue] = useState<string>('');
     const [linkInputValue, setLinkInputValue] = useState<string>('');
 
     const handleComplete = (data: any) => {
@@ -82,6 +84,27 @@ export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Prop
         navigate("/map");
     };
 
+    // api 코드 작성 
+    // const Submin = async () => {
+    //     if (!isLinkValid()) {
+    //         alert("링크 형식이 잘못되었습니다");
+    //         return;
+    //     }
+
+    //     try {
+    //         const response = await axios.post('/api', {
+    //             cafeName: cafeNameInputValue,
+    //             address: addressInputValue,
+    //             cafeLink: linkInputValue,
+    //         });
+    //         alert('신청이 완료되었습니다');
+    //         navigate('/map');
+    //     } catch (error) {
+    //         console.error('신청 중 에러 발생: ', error);
+    //         // alert('신청 중 에러 발생');
+    //     }
+    // };
+
     return (
         <Wrapper>
             <Header />
@@ -106,7 +129,7 @@ export const WriteCafe = ({ scripturl, textRadioValue, setTextRadioValue }: Prop
                         <Input
                             width="337px"
                             height="36px"
-                            placeholder="http://ab6ix-official.com"
+                            placeholder="http://idol-official.com"
                             onChange={handleLinkChange}
                             label="해당 생일카페 링크를 올려주세요"
                             bottomMessage={!isLinkValid() ? "링크 형식이 잘못되었습니다" : undefined}
