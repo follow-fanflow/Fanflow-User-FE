@@ -3,10 +3,6 @@ import EyesOpen from "../../../assets/imgs/eyeIcon.svg";
 import EyesClose from "../../../assets/imgs/closeIcon.svg";
 import styled from "styled-components";
 
-//사용법 1) <Input placeholder="s" onChange={handleFocus} />
-//사용법 2)<Input type="password" onChange={handleBlur} onFocus={handleFocus} placeholder="qlal" />
-//사용법 3)<Input type="icon" placeholder="test" onChange={handleBlur} Icon={<img src={search}} or Icon={people} />}/>
-
 interface InputProps {
   error?: boolean;
   bottomMessage?: string;
@@ -15,9 +11,10 @@ interface InputProps {
   type?: string;
   width?: string;
   value?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange?: (value: string, name: string) => void;
   onFocus?: () => void;
   Icon?: React.ReactNode;
+  name?: string;
 }
 
 export const Input = ({
@@ -31,8 +28,16 @@ export const Input = ({
   onChange,
   onFocus,
   Icon,
+  name = "",
 }: InputProps & React.InputHTMLAttributes<HTMLInputElement>) => {
   const [showOpen, setShowOpen] = useState<boolean>(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, name } = e.target;
+    if (onChange) {
+      onChange(value, name);
+    }
+  };
 
   return (
     <Warp>
@@ -46,7 +51,7 @@ export const Input = ({
             autoComplete="on"
             value={value}
             placeholder={placeholder}
-            onChange={onChange}
+            onChange={handleChange}
             onFocus={onFocus}
             $password={type}
           />
