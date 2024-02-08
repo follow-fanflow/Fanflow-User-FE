@@ -5,18 +5,39 @@ import Img from "../assets/imgs/homeLast.svg";
 import person from "../assets/imgs/PersonIcon.svg";
 import Button from "../components/common/button/Button";
 import { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 export function SignUp() {
-  const [changePassword, setChangePassword] = useState({
+  const navigation = useNavigate();
+  const [signData, setSignData] = useState({
+    nickname: "",
+    accountId: "",
     password: "",
-    newPassword: "",
-    rePassword: "",
+    repassword: "",
   });
 
-  function handlePasswordChange(e: any, field: any) {
-    setChangePassword((prev) => ({ ...prev, [field]: e.target.value }));
-  }
-  function handleBlur() { }
+  const onChangeInput = (
+    e: React.ChangeEvent<HTMLInputElement> | string,
+    name: string
+  ) => {
+    const inputValue = typeof e === "string" ? e : e.target.value;
+    setSignData({ ...signData, [name]: inputValue });
+    console.log(signData);
+  };
+
+  const onClickSign = () => {
+    axios
+      .post("베이스URL자리/user/signup", { ...signData })
+      .then(() => {
+        alert("회원가입에 성공하셨습니다");
+        navigation("/login");
+        console.log({ ...signData });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <Warp>
       <Sign>
@@ -33,33 +54,41 @@ export function SignUp() {
               <Input
                 type="icon"
                 placeholder="닉네임"
-                onChange={handleBlur}
+                onChange={(value) => onChangeInput(value, "nickname")}
+                name="nickname"
                 Icon={<img src={person} />}
               />
               <Input
                 type="icon"
                 placeholder="아이디"
-                onChange={handleBlur}
+                onChange={(value) => onChangeInput(value, "accountId")}
+                name="accountId"
                 Icon={<img src={person} />}
               />
               <Input
                 type="password"
                 placeholder="비밀번호"
-                onChange={(e) => handlePasswordChange(e, "newPassword")}
+                name="password"
+                onChange={(value) => onChangeInput(value, "password")}
               />
               <Input
                 type="password"
                 placeholder="비밀번호 확인"
-                onChange={(e) => handlePasswordChange(e, "rePassword")}
+                onChange={(value) => onChangeInput(value, "repassword")}
                 bottomMessage={
-                  changePassword.newPassword !== changePassword.rePassword
+                  signData.password !== signData.repassword
                     ? "※비밀번호가 일치하지 않습니다"
                     : undefined
                 }
               />
             </InputWarp>
           </Elements>
-          <Button content="회원가입" width={105} height={33} to="/login" />
+          <Button
+            content="회원가입"
+            width={105}
+            height={33}
+            onClick={onClickSign}
+          />
         </SignWarp>
       </Sign>
       <ImgWarp>
