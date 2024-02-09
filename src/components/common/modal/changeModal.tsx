@@ -2,6 +2,8 @@ import styled from "styled-components";
 import Button from "../button/Button";
 import { Input } from "../input/Input";
 import { useNavigate } from "react-router";
+import { useState } from "react";
+import axios, { AxiosHeaders } from "axios";
 
 interface ChangeModalProps {
     onClose: () => void;
@@ -12,13 +14,55 @@ interface ChangeModalProps {
 }
 
 export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeModal, title, placeholder, type }) => {
+    const [nicknameData, setNicknameData] = useState({
+        nickname: "",
+    });
+    const [passwordData, setPasswordData] = useState({
+        password: "",
+    });
+
     const handleFocus = () => {
         console.log('');
     }
+
     const navigate = useNavigate();
 
+    const onChangeInput = (
+        e: React.ChangeEvent<HTMLInputElement> | string,
+        name: string
+    ) => {
+        const inputValue = typeof e === "string" ? e : e.target.value;
+        if (type === "nickname") {
+            setNicknameData({ ...nicknameData, [name]: inputValue });
+            console.log(nicknameData);
+        } else if (type === "password") {
+            setPasswordData({ ...passwordData, [name]: inputValue });
+            console.log(passwordData);
+        }
+    }
+
     const handleSubmit = () => {
-        alert("변경이 완료되었습니다");
+        if (type === 'nickname') {
+            axios
+                .patch("베이스url/user/nickname/{id}", { ...nicknameData })
+                .then(() => {
+                    alert("닉네임 변경이 완료되었습니다");
+                    console.log({ ...nicknameData });
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        } else if (type === 'password') {
+            axios 
+                .patch("베이스url/user/password/{id}", { ...passwordData })
+                .then(() => {
+                    alert("비밀번호 변경이 완료되었습니다");
+                    console.log({...passwordData})
+                })
+                .catch((err) => {
+                    console.log(err);
+                })
+        }
         onClose();
         navigate("/profile")
     }
@@ -27,7 +71,11 @@ export const ChangeModal: React.FC<ChangeModalProps> = ({ onClose, showChangeMod
         <>
             <ModalWrapper>
                 <div style={{ fontSize: '20px', marginBottom: '30px' }}>{title}</div>
-                <Input width="330px" placeholder={placeholder} onChange={handleFocus} />
+                <Input
+                    width="330px"
+                    placeholder={placeholder}
+                    onChange={(value) => onChangeInput(value, "value")} 
+                />
                 <ButtonWrapper>
                     <Button
                         width={150}
