@@ -1,26 +1,44 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { theme } from "../../../styles/theme";
 import Search from "../../../assets/imgs/search.svg";
-import { Tag } from '../tag/Tag';
+import { Tag } from "../tag/Tag";
 
 interface AutoInputProps {
   label?: string;
   suggestions: string[];
   placeholder?: string;
+  onSelect: (selectedGroup: string) => void; // Callback function for selection
   value?: string | undefined;
 }
 
 export const AutoInput = ({
   label,
   placeholder,
+  onSelect,
   value,
   suggestions,
 }: AutoInputProps) => {
-  const [inputValue, setInputValue] = useState("");
-  const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [inputValue, setInputValue] = useState(value || "");
+  const [selectedTag, setSelectedTag] = useState<string | null>(value || null);
   const [tags, setTags] = useState<string[]>([]);
   const [filteredSuggestions, setFilteredSuggestions] = useState<string[]>([]);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (wrapperRef.current && !wrapperRef.current.contains(target)) {
+        setFilteredSuggestions([]);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [wrapperRef]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
@@ -39,6 +57,7 @@ export const AutoInput = ({
     setFilteredSuggestions([]);
     setSelectedTag(value);
     setTags((prevTags) => [...prevTags, value]);
+    onSelect(value); // Call the onSelect callback with the selected value
   };
 
   const handleTagDelete = (tag: string) => {
@@ -47,7 +66,7 @@ export const AutoInput = ({
   };
 
   return (
-    <Wrapper>
+    <Wrapper ref={wrapperRef}>
       <Top>
         {selectedTag && (
           <Tag
@@ -60,7 +79,7 @@ export const AutoInput = ({
       </Top>
       <Container>
         <Icon>
-          <img src={Search} />
+          <img src={Search} alt="Search icon" />
         </Icon>
         <Input
           type="text"
