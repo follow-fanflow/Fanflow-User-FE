@@ -28,6 +28,11 @@ export const Schedule = () => {
     },
   };
 
+  const handleGroupSelect = (selectedGroup: string) => {
+    // Perform actions when a group is selected, e.g., send a request
+    console.log(`Selected Group: ${selectedGroup}`);
+  };
+
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
 
   const formatDate = (date: Date) => {
@@ -55,6 +60,7 @@ export const Schedule = () => {
             suggestions={suggest}
             placeholder="그룹명"
             label="스케줄이 궁금한 아이돌"
+            onSelect={handleGroupSelect}
           />
         </Top>
         <img src={textlogo} alt="텍스트 로고" />

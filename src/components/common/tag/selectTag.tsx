@@ -10,7 +10,7 @@ const fetchItemsFromApi = async (): Promise<string[]> => {
   return ['LUCY', 'SEVENTEEN', 'AB6IX', 'AESPA', 'NEWJEANS'];
 };
 
-export const SelectTag: React.FC = () => {
+export const SelectTag: React.FC<SelectTagProps> = ({ type }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState('iDOL');
   const [itemsFromApi, setItemsFromApi] = useState<string[]>([]);
@@ -35,6 +35,8 @@ export const SelectTag: React.FC = () => {
     setSelectedItem(item);
     setIsOpen(false);
   }
+
+  const itemList = type === 'idol' ? itemsFromApi : ['신예찬', '조슈아', '신광일', '에스쿱스', '정한'];
 
   return (
     <ContSelect className={isOpen ? 'on' : ''}>
