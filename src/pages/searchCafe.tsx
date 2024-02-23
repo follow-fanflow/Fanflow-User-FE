@@ -10,6 +10,11 @@ import { ApplyButton } from "../components/common/button/applyButton";
 export const SearchCafe = () => {
   const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];
 
+  const handleGroupSelect = (selectedGroup: string) => {
+    // Perform actions when a group is selected, e.g., send a request
+    console.log(`Selected Group: ${selectedGroup}`);
+  };
+
   return (
     <Wrapper>
       <Header />
@@ -20,6 +25,7 @@ export const SearchCafe = () => {
             suggestions={suggest}
             placeholder="멤버명"
             label="내 최애 생일카페가 어디어디에 있나?"
+            onSelect={handleGroupSelect}
           />
         </Top>
         <img src={textlogo} alt="텍스트 로고" />
@@ -27,7 +33,11 @@ export const SearchCafe = () => {
       <ContentWrapper>
         <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>
         <ButtonStyle>
-          <ApplyButton width="205px" content="생일카페 추가하기" linkTo="/map/write" />
+          <ApplyButton
+            width="205px"
+            content="생일카페 추가하기"
+            linkTo="/map/write"
+          />
         </ButtonStyle>
       </ContentWrapper>
     </Wrapper>

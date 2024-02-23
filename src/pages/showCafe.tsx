@@ -8,27 +8,33 @@ import { theme } from "../styles/theme";
 import Map from "../components/bitrthdayCafe/map";
 
 export const ShowCafe = () => {
-    const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];
+  const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];
 
-    return (
-        <Wrapper>
-            <Header />
-            <SearchWarp>
-                <Top>
-                    <img src={Logo} alt="로고" width={80} />
-                    <AutoInput
-                        suggestions={suggest}
-                        placeholder="멤버명"
-                        label="내 최애 생일카페가 어디어디에 있나?"
-                    />
-                </Top>
-                <img src={textlogo} alt="텍스트로고" />
-            </SearchWarp>
-            <ContentWrapper>
-                <Map />
-            </ContentWrapper>
-        </Wrapper>
-    );
+  const handleGroupSelect = (selectedGroup: string) => {
+    // Perform actions when a group is selected, e.g., send a request
+    console.log(`Selected Group: ${selectedGroup}`);
+  };
+
+  return (
+    <Wrapper>
+      <Header />
+      <SearchWarp>
+        <Top>
+          <img src={Logo} alt="" width={80} />
+          <AutoInput
+            suggestions={suggest}
+            placeholder="멤버명"
+            label="내 최애 생일카페가 어디어디에 있나?"
+            onSelect={handleGroupSelect}
+          />
+        </Top>
+        <img src={textlogo} />
+      </SearchWarp>
+      <ContentWrapper>
+        <Map />
+      </ContentWrapper>
+    </Wrapper>
+  );
 };
 
 const ContentWrapper = styled.div`
