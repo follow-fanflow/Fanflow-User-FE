@@ -15,14 +15,14 @@ export const ShowCafe = () => {
             <Header />
             <SearchWarp>
                 <Top>
-                    <img src={Logo} alt="" width={80} />
+                    <img src={Logo} alt="로고" width={80} />
                     <AutoInput
                         suggestions={suggest}
                         placeholder="멤버명"
                         label="내 최애 생일카페가 어디어디에 있나?"
                     />
                 </Top>
-                <img src={textlogo} />
+                <img src={textlogo} alt="텍스트로고" />
             </SearchWarp>
             <ContentWrapper>
                 <Map />

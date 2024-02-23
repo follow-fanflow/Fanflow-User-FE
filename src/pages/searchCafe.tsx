@@ -22,7 +22,7 @@ export const SearchCafe = () => {
             label="내 최애 생일카페가 어디어디에 있나?"
           />
         </Top>
-        <img src={textlogo} />
+        <img src={textlogo} alt="텍스트 로고" />
       </SearchWarp>
       <ContentWrapper>
         <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>

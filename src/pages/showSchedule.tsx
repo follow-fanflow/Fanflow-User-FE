@@ -57,7 +57,7 @@ export const Schedule = () => {
             label="스케줄이 궁금한 아이돌"
           />
         </Top>
-        <img src={textlogo} />
+        <img src={textlogo} alt="텍스트 로고" />
       </SearchWarp>
       <ContentWrapper>
         <Content>

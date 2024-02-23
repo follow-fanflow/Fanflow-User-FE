@@ -12,9 +12,9 @@ export const Fanlog = () => {
       <Wrapper>
         <Header />
         <BannerWarp>
-          <img src={banner} />
-          <img src={banner} />
-          <img src={banner} />
+          <img src={banner} alt="Banner 1" />
+          <img src={banner} alt="Banner 2" />
+          <img src={banner} alt="Banner 3" />
         </BannerWarp>
       </Wrapper>
       <Warp>
