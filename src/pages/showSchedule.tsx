@@ -5,30 +5,17 @@ import { AutoInput } from "../components/common/input/AutoInput";
 import Logo from "../assets/imgs/logo1.svg";
 import textlogo from "../assets/imgs/textLogo.svg";
 import { DaySchedule } from "../components/schedule/daySchedule";
+import axios from "axios";
 import { MyCalender } from "../components/calendar/calendar";
 import { theme } from "../styles/theme";
 import { ApplyButton } from "../components/common/button/applyButton";
 
-interface ScheduleData {
-  [date: string]: {
-    [group: string]: string[];
-  };
-}
-
 export const Schedule = () => {
   const suggest = ["ab6ix", "react", "ff", "avre", "ateez"];
 
-  const scheduleData: ScheduleData = {
-    "2024년01월31일": {
-      ab6ix: ["18 : 00 ) THE FUTURE IS OURS : FOUND", "라디오", "엠카"],
-    },
-    "2024년02월01일": {
-      ab6ix: ["스케줄1", "스케줄2"],
-      react: ["스터디2", "코딩2"],
-    },
-  };
-
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
+  const [schedules, setSchedules] = useState<any[]>([]);
 
   const formatDate = (date: Date) => {
     const year = date.getFullYear();
@@ -42,7 +29,33 @@ export const Schedule = () => {
     setSelectedDate(formattedDate);
   };
 
-  const markedDates = Object.keys(scheduleData);
+  const handleGroupSelect = (selectedGroup: string) => {
+    console.log(`Selected Group: ${selectedGroup}`);
+    axios
+      .get(`/schedule?group=${selectedGroup}`)
+      .then((response) => {
+        const scheduleList = response.data.scheduleList;
+
+        const updatedSchedules = scheduleList.map((schedule: any) => {
+          return {
+            id: schedule.id,
+            title: schedule.title,
+            date: schedule.date,
+            group: schedule.group,
+            member: schedule.member,
+            place: schedule.place,
+          };
+        });
+
+        setSelectedGroup(selectedGroup);
+        setSchedules(updatedSchedules);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const markedDates: string[] = schedules.map((schedule) => schedule.date);
   console.log(markedDates);
 
   return (
@@ -55,6 +68,7 @@ export const Schedule = () => {
             suggestions={suggest}
             placeholder="그룹명"
             label="스케줄이 궁금한 아이돌"
+            onSelect={handleGroupSelect}
           />
         </Top>
         <img src={textlogo} />
@@ -66,13 +80,20 @@ export const Schedule = () => {
               onClickDay={handleDateChange}
               markedDates={markedDates}
             />
-            {selectedDate && scheduleData[selectedDate] && (
-              <DaySchedule
-                date={selectedDate}
-                group="ab6ix"
-                schedule={scheduleData[selectedDate]["ab6ix"]}
-              />
-            )}
+
+            {selectedDate &&
+              selectedGroup &&
+              schedules.find((schedule) => schedule.date === selectedDate) && (
+                <DaySchedule
+                  date={selectedDate}
+                  group={selectedGroup}
+                  schedule={
+                    schedules.find(
+                      (schedule) => schedule.date === selectedDate
+                    )![selectedGroup]
+                  }
+                />
+              )}
           </Fix>
           <ApplyButton content="스케줄 신청하기" linkTo="/schedule/write" />
         </Content>
@@ -80,7 +101,6 @@ export const Schedule = () => {
     </Wrapper>
   );
 };
-
 const Fix = styled.div`
   display: flex;
   align-items: center;
