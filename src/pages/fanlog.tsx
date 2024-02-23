@@ -5,8 +5,18 @@ import banner from "../assets/imgs/배너.png";
 import { Thumbnail } from "../components/common/log/thumbnail";
 import Button from "../components/common/button/Button";
 import { SelectTag } from "../components/common/tag/selectTag";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const Fanlog = () => {
+  const [data, setDate] = useState([]);
+
+  useEffect(() => {
+    axios.get("baseURL").then((res) => {
+      console.log(res.data.list);
+      setDate(res.data.list);
+    });
+  });
   return (
     <>
       <Wrapper>
@@ -28,6 +38,12 @@ export const Fanlog = () => {
           />
         </Search>
         <LogWarp>
+          {/* {Array.isArray(data) &&
+          data.map((item, idx) => (
+            <Link
+              style={{ textDecoration: "none", color: "black" }}
+              to={`/more/${item.recruitment_id}`}
+            ></} */}
           <Thumbnail
             img="https://image.static.bstage.in/cdn-cgi/image/metadata=none,dpr=2/ab6ix/f159b904-7b8a-46d6-87c1-922d1150e1cf/783d7bae-ca55-4361-9d67-aae0a991134f/ori.jpeg"
             title="안녕하세용..?"
