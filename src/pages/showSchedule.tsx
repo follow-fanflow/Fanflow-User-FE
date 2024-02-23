@@ -13,6 +13,21 @@ import { ApplyButton } from "../components/common/button/applyButton";
 export const Schedule = () => {
   const suggest = ["ab6ix", "react", "ff", "avre", "ateez"];
 
+  const scheduleData: ScheduleData = {
+    "2024년01월31일": {
+      ab6ix: ["18 : 00 ) THE FUTURE IS OURS : FOUND", "라디오", "엠카"],
+    },
+    "2024년02월01일": {
+      ab6ix: ["스케줄1", "스케줄2"],
+      react: ["스터디2", "코딩2"],
+    },
+  };
+
+  const handleGroupSelect = (selectedGroup: string) => {
+    // Perform actions when a group is selected, e.g., send a request
+    console.log(`Selected Group: ${selectedGroup}`);
+  };
+
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [schedules, setSchedules] = useState<any[]>([]);
