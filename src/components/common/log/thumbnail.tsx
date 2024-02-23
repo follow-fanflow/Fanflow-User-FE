@@ -4,35 +4,48 @@ import heart from "../../../assets/imgs/noheart.svg";
 import checkHeart from "../../../assets/imgs/checkHeart.svg";
 import { theme } from "../../../styles/theme";
 import { DeleteModal } from "../modal/deleteModal";
+import axios from "axios";
 
 interface ThumbnailProps {
   img: string;
   title: string;
   detail: string;
+  onClick?: () => void;
+  id: Number;
 }
 
-export const Thumbnail = ({ img, title, detail }: ThumbnailProps) => {
+export const Thumbnail = ({
+  img,
+  title,
+  detail,
+  onClick,
+  id,
+}: ThumbnailProps) => {
   const [noheart, setHeart] = useState<boolean>(false);
 
-  const handleThumbnailClick = () => {
-    console.log("Thumbnail clicked!");
-    window.location.href = "/fanlog/detail";
+  const heartClick = () => {
+    setHeart(!noheart);
+    if (noheart) {
+      axios.delete(`/log/like/${id}`);
+    } else {
+      axios.post(`/log/like/${id}`);
+    }
   };
 
   return (
     <Warp>
-      <ImgWarp onClick={handleThumbnailClick}>
+      <ImgWarp onClick={onClick}>
         <img src={img} alt="" width={175} height={216} />
       </ImgWarp>
-      <Heart onClick={() => setHeart(!noheart)}>
+      <Heart onClick={heartClick}>
         {noheart ? (
           <img src={checkHeart} alt="Eyes Close" />
         ) : (
           <img src={heart} alt="Eyes Open" />
         )}
       </Heart>
-      <Title onClick={handleThumbnailClick}>{title}</Title>
-      <Detail onClick={handleThumbnailClick}>{detail}</Detail>
+      <Title onClick={onClick}>{title}</Title>
+      <Detail onClick={onClick}>{detail}</Detail>
     </Warp>
   );
 };

@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Login } from "../pages/login";
 import { SignUp } from "../pages/signUp";
 import { SearchCafe } from "../pages/searchCafe";
-import { Fanlog } from "../pages/fanlog";
+import Fanlog from "../pages/fanlog";
 import { IdolList } from "../pages/idolList";
 import { Introduce } from "../pages/introduce";
 import { Home } from "../pages/home";
@@ -46,7 +46,7 @@ export const Router = () => {
         <Route path="/schedule" element={<Schedule />} />
         <Route path="/schedule/write" element={<WriteSchedule />} />
         <Route path="/fanlog" element={<Fanlog />} />
-        <Route path="/fanlog/detail" element={<FanlogDetail />} />
+        <Route path="/fanlog/:id" element={<FanlogDetail />} />
         <Route path="/fanlog/write" element={<WriteLog />} />
         <Route path="/introduce" element={<IdolList />} />
         <Route path="/introduce/group" element={<Introduce />} />

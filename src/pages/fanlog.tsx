@@ -1,22 +1,60 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../components/header";
 import banner from "../assets/imgs/배너.png";
 import { Thumbnail } from "../components/common/log/thumbnail";
 import Button from "../components/common/button/Button";
 import { SelectTag } from "../components/common/tag/selectTag";
-import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-export const Fanlog = () => {
-  const [data, setDate] = useState([]);
+const Fanlog = () => {
+  const navigate = useNavigate();
+  const [Fanlogdata, setFanlogData] = useState([
+    {
+      id: Number,
+      title: "",
+      content: "",
+      group: "",
+      likeCount: Number,
+      image: "",
+    },
+  ]);
+
+  const [selectedGroup, setSelectedGroup] = useState("");
 
   useEffect(() => {
-    axios.get("baseURL").then((res) => {
+    axios.get("localhost:3002/fanlog").then((res) => {
       console.log(res.data.list);
-      setDate(res.data.list);
+      setFanlogData(res.data.list);
     });
-  });
+  }, []);
+
+  const onClickFanlog = (id: number) => {
+    navigate(`/fanlog/${id}`);
+  };
+
+  const onChangeTag = (value: string, name: string) => {
+    console.log(`Selected Group: ${value}`);
+    axios
+      .get(`/schedule?group=${value}`)
+      .then((response) => {
+        const fanloglist = response.data.fanloglist;
+        const groupFanlog = fanloglist.map((schedule: any) => {
+          return {
+            id: schedule.id,
+            title: schedule.title,
+            group: schedule.group,
+            likeCount: schedule.likeCount,
+            image: schedule.image,
+          };
+        });
+        setSelectedGroup(value);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
   return (
     <>
       <Wrapper>
@@ -29,7 +67,11 @@ export const Fanlog = () => {
       </Wrapper>
       <Warp>
         <Search>
-          <SelectTag />
+          <SelectTag
+            type="idol"
+            onChange={(value) => onChangeTag(value, "group")}
+            name="group"
+          />
           <Button
             content="작성하기"
             width={154}
@@ -38,30 +80,24 @@ export const Fanlog = () => {
           />
         </Search>
         <LogWarp>
-          {/* {Array.isArray(data) &&
-          data.map((item, idx) => (
-            <Link
-              style={{ textDecoration: "none", color: "black" }}
-              to={`/more/${item.recruitment_id}`}
-            ></} */}
+          {Array.isArray(Fanlogdata) &&
+            Fanlogdata.map((item, idx) => (
+              <Thumbnail
+                key={idx}
+                id={idx}
+                img={item.image}
+                title={item.title}
+                detail={item.content}
+                onClick={() => onClickFanlog(idx)}
+              />
+            ))}
           <Thumbnail
-            img="https://image.static.bstage.in/cdn-cgi/image/metadata=none,dpr=2/ab6ix/f159b904-7b8a-46d6-87c1-922d1150e1cf/783d7bae-ca55-4361-9d67-aae0a991134f/ori.jpeg"
-            title="안녕하세용..?"
-            detail="처음뵙지만 잘부탁해?"
+            id={1}
+            onClick={() => onClickFanlog(1)}
+            img=""
+            title="박빨입"
+            detail="박우진보고싶어버블라이브켜"
           />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
-          <Thumbnail img="r" title="f" detail="l" />
         </LogWarp>
       </Warp>
     </>
@@ -99,3 +135,5 @@ const LogWarp = styled.div`
   flex-wrap: wrap;
   gap: 28px;
 `;
+
+export default Fanlog;

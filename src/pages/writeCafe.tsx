@@ -115,7 +115,7 @@ export const WriteCafe = ({
           생일카페 위치를 추가해주세요
         </div>
         <ContentWrapper>
-          <SelectTag />
+          <SelectTag type="member" />
           <InputWrapper>
             <Input
               width="337px"

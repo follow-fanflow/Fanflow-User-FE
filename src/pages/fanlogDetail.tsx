@@ -10,10 +10,12 @@ export const FanlogDetail = () => {
   const navigate = useNavigate();
   const [detailData, setDetailData] = useState({
     nickname: "",
-    img: "",
+    id: Number,
     title: "",
-    detail: "",
-    heartCnt: "",
+    content: "",
+    group: "",
+    likeCount: "",
+    image: "https://parkwoojin",
   });
 
   const BackClick = () => {
@@ -36,22 +38,17 @@ export const FanlogDetail = () => {
           </Back>
           <Content>
             <Left>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTiz6yQKtOoA5sHW1Jcyq83BoXp9xu87nzJbHi8Gp2log&s"
-                alt=""
-                width={230}
-                height={308}
-              />
+              <img src={detailData.image} alt="" width={230} height={308} />
 
               <Heart>
-                <img src={HeartImg} alt="하트"/>
-                {detailData.heartCnt}100개
+                <img src={HeartImg} alt="하트" />
+                {detailData.likeCount}100개
               </Heart>
             </Left>
             <Right>
               <Title>{detailData.title}정신차리자</Title>
               <Detail>
-                {detailData.detail}알보고니 곧 컴백이라니 열심히 살겠습니다...
+                {detailData.content}알보고니 곧 컴백이라니 열심히 살겠습니다...
                 우리오파(于里烏播) 개귀여어(凱歸蠡魚) 하고풍거(河鼓風去)
                 삭다해라(削多海蘿) 신의미모(神義美貌) 세상간지(世上間地)
                 용안에서(用安恚西) 비치난다(費治難多) 좌로인정(左虜人正)

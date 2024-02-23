@@ -1,18 +1,24 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 interface SelectTagProps {
-  type: "idol" | 'member';
+  type: "idol" | "member";
+  onChange?: (value: string, name: string) => void;
+  name?: string;
 }
 
 const fetchItemsFromApi = async (): Promise<string[]> => {
   // 나중에 api 연동 ㄱㄱ
-  return ['LUCY', 'SEVENTEEN', 'AB6IX', 'AESPA', 'NEWJEANS'];
+  return ["LUCY", "SEVENTEEN", "AB6IX", "AESPA", "NEWJEANS"];
 };
 
-export const SelectTag: React.FC<SelectTagProps> = ({ type }) => {
+export const SelectTag: React.FC<SelectTagProps> = ({
+  type,
+  onChange,
+  name = "",
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState('iDOL');
+  const [selectedItem, setSelectedItem] = useState("iDOL");
   const [itemsFromApi, setItemsFromApi] = useState<string[]>([]);
 
   useEffect(() => {
@@ -21,7 +27,7 @@ export const SelectTag: React.FC<SelectTagProps> = ({ type }) => {
         const result = await fetchItemsFromApi();
         setItemsFromApi(result);
       } catch (error: any) {
-        console.error('error: ', error);
+        console.error("error: ", error);
       }
     };
     fetchData();
@@ -34,17 +40,28 @@ export const SelectTag: React.FC<SelectTagProps> = ({ type }) => {
   const handleListItemClick = (item: any) => {
     setSelectedItem(item);
     setIsOpen(false);
-  }
+    if (onChange) {
+      onChange(item, name || "");
+    }
+  };
 
-  const itemList = type === 'idol' ? itemsFromApi : ['신예찬', '조슈아', '신광일', '에스쿱스', '정한'];
+  const itemList =
+    type === "idol"
+      ? itemsFromApi
+      : ["신예찬", "조슈아", "신광일", "에스쿱스", "정한"];
 
   return (
-    <ContSelect className={isOpen ? 'on' : ''}>
+    <ContSelect className={isOpen ? "on" : ""}>
       <BtnSelect onClick={handleButtonClick}>{selectedItem}</BtnSelect>
       <ListMember>
-        {itemsFromApi.map((item, index) => (
+        {itemList.map((item, index) => (
           <ListItem key={index}>
-            <ButtonInListItem type="button" onClick={() => handleListItemClick(item)}>{item}</ButtonInListItem>
+            <ButtonInListItem
+              type="button"
+              onClick={() => handleListItemClick(item)}
+            >
+              {item}
+            </ButtonInListItem>
           </ListItem>
         ))}
       </ListMember>
