@@ -1,18 +1,41 @@
 import styled from "styled-components";
 import Logoimg from "../assets/imgs/logo1.svg";
-import PersonIcon from "../assets/imgs/PersonIcon.svg";
-import EyeCloseIcon from "../assets/imgs/closeIcon.svg";
-import EyeOpenIcon from "../assets/imgs/openIcon.svg";
+import person from "../assets/imgs/PersonIcon.svg";
 import { Speech } from "../components/login/Speech";
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import { Input } from "../components/common/input/Input";
 
 export function Login() {
-  const [showPassword, setShowPassword] = useState(false);
+  const navigation = useNavigate();
+  const [loginData, setLoginData] = useState({
+    accountId: "",
+    passowrd: "",
+  });
 
-  const handleTogglePassword = () => {
-    setShowPassword(!showPassword);
-  };
+  const onChangeInput = (
+    e: React.ChangeEvent<HTMLInputElement> | string,
+    name: string
+  ) => {
+    const inputValue = typeof e === "string" ? e : e.target.value;
+    setLoginData({ ...loginData, [name]: inputValue });
+    console.log(loginData);
+  }
+
+  const onClickLogin = () => {
+    axios
+      .post("베이스url/user/login", { ...loginData })
+      .then(() => {
+        alert("로그인에 성공하셨습니다");
+        navigation("/");
+        console.log({ ...loginData });
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
 
   return (
     <Wrapper>
@@ -33,18 +56,22 @@ export function Login() {
           <Error>※계정을 찾을 수 없습니다</Error>
         </TextWrapper>
         <LoginBox>
-          <IdWrapper>
-            <IdIcon src={PersonIcon}></IdIcon>
-            <IdInput placeholder="아이디"></IdInput>
-          </IdWrapper>
-          <PwWrapper>
-            <PwInput
-              type={showPassword ? "text" : "password"}
-              placeholder="비밀번호"
-            />
-            <PwIcon src={showPassword ? EyeOpenIcon : EyeCloseIcon} onClick={handleTogglePassword} />
-          </PwWrapper>
-          <LoginBtn to='/'>로그인</LoginBtn>
+          <Input
+            type="icon"
+            placeholder="아이디"
+            onChange={(value) => onChangeInput(value, "accountId")}
+            name="accountId"
+            Icon={<img src={person}/>}
+            width="270px"
+          />
+          <Input
+            type="password"
+            placeholder="비밀번호"
+            name="password"
+            onChange={(value) => onChangeInput(value, "password")}
+            width="270px"
+          />
+          <LoginBtn onClick={onClickLogin} to='/'>로그인</LoginBtn>
           <SpanWrapper>
             <Span>아직 회원이 아니신가요?</Span>
             <SignUpBtn to='/signUp'>회원가입하기</SignUpBtn>
@@ -109,7 +136,7 @@ const LoginBtn = styled(Link)`
   text-align: center;
   align-items: center;
   text-decoration: none;
-  width: 262px;
+  width: 270px;
   height: 30px;
   background-color: ${({ theme }) => theme.color.zero};
   color: white; 
@@ -120,62 +147,6 @@ const LoginBtn = styled(Link)`
   border-radius: 5px;
   &:hover {
     background-color: ${({ theme }) => theme.color.one};
-  }
-`;
-
-
-const PwIcon = styled.img`
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-`;
-
-const PwWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative; /* relative 추가 */
-`;
-
-const PwInput = styled.input`
-  border-radius: 5px;
-  border: 1.5px solid ${({ theme }) => theme.color.gray__1};
-  width: 230px;
-  height: 30px;
-  position: relative;
-  padding-left: 10px;
-  padding-right: 20px;
-  &:focus {
-    border: 1.5px solid black;
-    outline: none;
-  }
-`;
-
-const IdWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  position: relative;
-`;
-
-const IdIcon = styled.img`
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-`;
-
-const IdInput = styled.input`
-  border-radius: 5px;
-  border: 1.5px solid ${({ theme }) => theme.color.gray__1};
-  width: 230px;
-  height: 30px;
-  position: relative;
-  padding-left: 30px;
-  &:focus {
-    border: 1.5px solid black;
-    outline: none;
   }
 `;
 
