@@ -4,13 +4,44 @@ import { theme } from "../styles/theme";
 import { SelectTag } from "../components/common/tag/selectTag";
 import { Input } from "../components/common/input/Input";
 import Button from "../components/common/button/Button";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const WriteSchedule = () => {
+  const [scheduleData, SetScheduleData] = useState({
+    title: "",
+    date: "",
+    group: "",
+    member: "",
+    place: "",
+  });
+
+  React.useEffect(() => {
+    console.log(scheduleData);
+  }, [scheduleData]);
+
+  const onChangeInput = (
+    e: React.ChangeEvent<HTMLInputElement> | string,
+    name: string
+  ) => {
+    const inputValue = typeof e === "string" ? e : e.target.value;
+    SetScheduleData({ ...scheduleData, [name]: inputValue });
+    console.log(scheduleData);
+  };
+
   const navigate = useNavigate();
   const Submin = () => {
-    alert("신청이 완료되었습니다");
-    navigate("/schedule");
+    axios
+      .post("베이스URL자리/user/schedule/write", { ...scheduleData })
+      .then(() => {
+        alert("신청이 완료되었습니다");
+        navigate("/schedule");
+        console.log({ ...scheduleData });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <Wrap>
@@ -29,18 +60,30 @@ export const WriteSchedule = () => {
                 label="스케줄명을 입력해주세요"
                 placeholder="ex) 빌드업"
                 width="399px"
+                onChange={(value) => onChangeInput(value, "title")}
+                name="title"
               />
               <Input
                 label="장소를 입력해주세요"
                 placeholder="ex) 홍대입구역 2번 출구"
                 width="399px"
+                onChange={(value) => onChangeInput(value, "place")}
+                name="place"
               />
             </First>
             <First>
-              <Input type="date" width="399px" placeholder="날짜 선택" />
+              <Input
+                type="date"
+                width="399px"
+                placeholder="날짜 선택"
+                onChange={(value) => onChangeInput(value, "date")}
+                name="date"
+              />
               <Input
                 placeholder="해당 스케줄 멤버를 입력해주세요"
                 width="399px"
+                onChange={(value) => onChangeInput(value, "member")}
+                name="member"
               />
             </First>
           </InputWrap>

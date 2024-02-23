@@ -24,6 +24,10 @@ export const Schedule = () => {
     return `${year}년${month}월${day}일`;
   };
 
+  React.useEffect(() => {
+    console.log(schedules);
+  }, [schedules]);
+
   const handleDateChange = (date: Date) => {
     const formattedDate = formatDate(date);
     setSelectedDate(formattedDate);

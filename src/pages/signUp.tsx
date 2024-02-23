@@ -4,7 +4,7 @@ import { Input } from "../components/common/input/Input";
 import Img from "../assets/imgs/homeLast.svg";
 import person from "../assets/imgs/PersonIcon.svg";
 import Button from "../components/common/button/Button";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -25,6 +25,10 @@ export function SignUp() {
     setSignData({ ...signData, [name]: inputValue });
     console.log(signData);
   };
+
+  React.useEffect(() => {
+    console.log(signData);
+  }, [signData]);
 
   const onClickSign = () => {
     axios
@@ -56,7 +60,7 @@ export function SignUp() {
                 placeholder="닉네임"
                 onChange={(value) => onChangeInput(value, "nickname")}
                 name="nickname"
-                Icon={<img src={person} alt="닉네임"/>}
+                Icon={<img src={person} alt="닉네임" />}
               />
               <Input
                 type="icon"
