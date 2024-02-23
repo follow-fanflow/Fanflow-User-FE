@@ -71,7 +71,7 @@ export const Schedule = () => {
             onSelect={handleGroupSelect}
           />
         </Top>
-        <img src={textlogo} />
+        <img src={textlogo} alt="텍스트 로고" />
       </SearchWarp>
       <ContentWrapper>
         <Content>

@@ -16,7 +16,7 @@ export function Introduce() {
                 </ButtonWrapper>
                 <Box1>
                     <GroupProfile>
-                        <img src={Lucy}></img>
+                        <img src={Lucy} alt="루시"></img>
                         <GroupName>LUCY</GroupName>
                         <div style={{ marginTop: '5px' }}>2019년 데뷔</div>
                     </GroupProfile>

@@ -28,7 +28,7 @@ export const SearchCafe = () => {
             onSelect={handleGroupSelect}
           />
         </Top>
-        <img src={textlogo} />
+        <img src={textlogo} alt="텍스트 로고" />
       </SearchWarp>
       <ContentWrapper>
         <Content>생일카페 위치가 궁금한 멤버를 검색해주세요</Content>

@@ -61,7 +61,7 @@ export function Login() {
             placeholder="아이디"
             onChange={(value) => onChangeInput(value, "accountId")}
             name="accountId"
-            Icon={<img src={person}/>}
+            Icon={<img src={person} alt="계정"/>}
             width="270px"
           />
           <Input

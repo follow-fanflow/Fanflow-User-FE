@@ -88,16 +88,6 @@ export const WriteCafe = ({
 
   const navigate = useNavigate();
 
-  // const Submin = () => {
-  //   if (!isLinkValid()) {
-  //     alert("링크 형식이 잘못되었습니다");
-  //     return;
-  //   }
-
-  //   alert("신청이 완료되었습니다");
-  //   navigate("/map");
-  // };
-
   // //api 코드 작성
   const Submin = async () => {
     if (!isLinkValid()) {
@@ -114,7 +104,6 @@ export const WriteCafe = ({
       navigate("/map");
     } catch (error) {
       console.error("신청 중 에러 발생: ", error);
-      // alert('신청 중 에러 발생');
     }
   };
 

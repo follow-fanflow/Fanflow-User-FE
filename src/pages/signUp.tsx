@@ -56,14 +56,14 @@ export function SignUp() {
                 placeholder="닉네임"
                 onChange={(value) => onChangeInput(value, "nickname")}
                 name="nickname"
-                Icon={<img src={person} />}
+                Icon={<img src={person} alt="닉네임"/>}
               />
               <Input
                 type="icon"
                 placeholder="아이디"
                 onChange={(value) => onChangeInput(value, "accountId")}
                 name="accountId"
-                Icon={<img src={person} />}
+                Icon={<img src={person} alt="아이디" />}
               />
               <Input
                 type="password"

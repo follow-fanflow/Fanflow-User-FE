@@ -7,7 +7,7 @@ export const NotFound = () => {
   return (
     <Wrap>
       <Logo>
-        <img src={logo} />
+        <img src={logo} alt="로고" />
       </Logo>
       <Not>404</Not>
       <PageText>페이지를 찾을 수 없습니다</PageText>

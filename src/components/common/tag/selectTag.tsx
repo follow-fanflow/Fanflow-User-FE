@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+interface SelectTagProps {
+  type: "idol" | 'member';
+}
+
 const fetchItemsFromApi = async (): Promise<string[]> => {
   // 나중에 api 연동 ㄱㄱ
   return ['LUCY', 'SEVENTEEN', 'AB6IX', 'AESPA', 'NEWJEANS'];

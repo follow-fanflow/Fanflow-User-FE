@@ -44,7 +44,7 @@ export const FanlogDetail = () => {
               />
 
               <Heart>
-                <img src={HeartImg} />
+                <img src={HeartImg} alt="하트"/>
                 {detailData.heartCnt}100개
               </Heart>
             </Left>
