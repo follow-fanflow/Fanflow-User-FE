@@ -55,7 +55,7 @@ export const WriteSchedule = () => {
         <FormWrap>
           <InputWrap>
             <First>
-              <SelectTag />
+              <SelectTag type="idol" />
               <Input
                 label="스케줄명을 입력해주세요"
                 placeholder="ex) 빌드업"

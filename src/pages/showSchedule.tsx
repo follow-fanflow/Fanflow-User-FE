@@ -9,24 +9,8 @@ import axios from "axios";
 import { MyCalender } from "../components/calendar/calendar";
 import { theme } from "../styles/theme";
 import { ApplyButton } from "../components/common/button/applyButton";
-
 export const Schedule = () => {
   const suggest = ["ab6ix", "react", "ff", "avre", "ateez"];
-
-  const scheduleData: ScheduleData = {
-    "2024년01월31일": {
-      ab6ix: ["18 : 00 ) THE FUTURE IS OURS : FOUND", "라디오", "엠카"],
-    },
-    "2024년02월01일": {
-      ab6ix: ["스케줄1", "스케줄2"],
-      react: ["스터디2", "코딩2"],
-    },
-  };
-
-  const handleGroupSelect = (selectedGroup: string) => {
-    // Perform actions when a group is selected, e.g., send a request
-    console.log(`Selected Group: ${selectedGroup}`);
-  };
 
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
@@ -54,7 +38,6 @@ export const Schedule = () => {
       .get(`/schedule?group=${selectedGroup}`)
       .then((response) => {
         const scheduleList = response.data.scheduleList;
-
         const updatedSchedules = scheduleList.map((schedule: any) => {
           return {
             id: schedule.id,
@@ -65,7 +48,6 @@ export const Schedule = () => {
             place: schedule.place,
           };
         });
-
         setSelectedGroup(selectedGroup);
         setSchedules(updatedSchedules);
       })
@@ -75,7 +57,6 @@ export const Schedule = () => {
   };
 
   const markedDates: string[] = schedules.map((schedule) => schedule.date);
-  console.log(markedDates);
 
   return (
     <Wrapper>
@@ -99,7 +80,6 @@ export const Schedule = () => {
               onClickDay={handleDateChange}
               markedDates={markedDates}
             />
-
             {selectedDate &&
               selectedGroup &&
               schedules.find((schedule) => schedule.date === selectedDate) && (
