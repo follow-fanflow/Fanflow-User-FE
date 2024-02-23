@@ -217,7 +217,3 @@ const FindAddressBtn = styled.button`
     background-color: ${({ theme }) => theme.color.gray_1};
   }
 `;
-
-export const WriteCafe = () => {
-    
-}
