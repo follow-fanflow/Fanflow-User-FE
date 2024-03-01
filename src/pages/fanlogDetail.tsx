@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { Header } from "../components/header";
 import banner from "../assets/imgs/배너.png";
 import BackIcon from "../assets/imgs/leftArrow.svg";
+import axios from "axios";
 import HeartImg from "../assets/imgs/checkHeart.svg";
 
 export const FanlogDetail = () => {
@@ -17,6 +18,17 @@ export const FanlogDetail = () => {
     likeCount: "",
     image: "https://parkwoojin",
   });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`/log/${detailData.id}`);
+        setDetailData(response.data.list);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  }, [detailData.id]);
 
   const BackClick = () => {
     navigate(-1);
@@ -39,7 +51,6 @@ export const FanlogDetail = () => {
           <Content>
             <Left>
               <img src={detailData.image} alt="" width={230} height={308} />
-
               <Heart>
                 <img src={HeartImg} alt="하트" />
                 {detailData.likeCount}100개
