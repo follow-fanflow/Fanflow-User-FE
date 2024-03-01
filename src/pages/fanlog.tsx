@@ -12,11 +12,11 @@ const Fanlog = () => {
   const navigate = useNavigate();
   const [Fanlogdata, setFanlogData] = useState([
     {
-      id: Number,
+      id: 0,
       title: "",
       content: "",
       group: "",
-      likeCount: Number,
+      likeCount: 0,
       image: "",
     },
   ]);
@@ -24,7 +24,7 @@ const Fanlog = () => {
   const [selectedGroup, setSelectedGroup] = useState("");
 
   useEffect(() => {
-    axios.get("localhost:3002/fanlog").then((res) => {
+    axios.get("http://localhost:3002/fanlog").then((res) => {
       console.log(res.data.list);
       setFanlogData(res.data.list);
     });
@@ -37,7 +37,7 @@ const Fanlog = () => {
   const onChangeTag = (value: string, name: string) => {
     console.log(`Selected Group: ${value}`);
     axios
-      .get(`/schedule?group=${value}`)
+      .get(`http://localhost:3002/schedule?group=${value}`)
       .then((response) => {
         const fanloglist = response.data.fanloglist;
         const groupFanlog = fanloglist.map((schedule: any) => {
