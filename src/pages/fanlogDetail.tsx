@@ -84,7 +84,8 @@ const Wrapper = styled.div`
 `;
 
 const BannerWarp = styled.div`
-
+  display: flex;
+  justify-content: center;
 `;
 
 const Warp = styled.div`

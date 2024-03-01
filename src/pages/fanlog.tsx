@@ -108,14 +108,15 @@ const Warp = styled.div`
 `;
 
 const Wrapper = styled.div`
-  padding: 110px 0px;
+  padding: 110px 0px 55px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const BannerWarp = styled.div`
-
+  display: flex;
+  justify-content: center;
 `;
 
 const Search = styled.div`
