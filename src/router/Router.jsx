@@ -30,6 +30,7 @@ import { MonstaX } from "../pages/introduce/monstax";
 import { NctDream } from "../pages/introduce/nctdream";
 import { Newjeans } from "../pages/introduce/newjeans";
 import { TheBoyz } from "../pages/introduce/theboyz";
+import {Banner} from "../components/common/log/banner";
 
 export const Router = () => {
   return (
@@ -66,6 +67,7 @@ export const Router = () => {
         <Route path="/introduce/group/monstax" element={<MonstaX />} />
         <Route path="/introduce/group/newjeans" element={<Newjeans />} />
         <Route path="/introduce/group/theboyz" element={<TheBoyz />} />
+        <Route path="/banner" element={<Banner/> } />
       </Routes>
     </BrowserRouter>
   );

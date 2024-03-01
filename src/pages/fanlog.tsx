@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Header } from "../components/header";
-import banner from "../assets/imgs/배너.png";
+import banner from "../assets/imgs/bannerImg.svg"
 import { Thumbnail } from "../components/common/log/thumbnail";
 import Button from "../components/common/button/Button";
 import { SelectTag } from "../components/common/tag/selectTag";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Banner from "../components/common/log/banner";
 
 const Fanlog = () => {
   const navigate = useNavigate();
@@ -60,9 +61,7 @@ const Fanlog = () => {
       <Wrapper>
         <Header />
         <BannerWarp>
-          <img src={banner} alt="Banner 1" />
-          <img src={banner} alt="Banner 2" />
-          <img src={banner} alt="Banner 3" />
+          <Banner />
         </BannerWarp>
       </Wrapper>
       <Warp>
@@ -116,10 +115,7 @@ const Wrapper = styled.div`
 `;
 
 const BannerWarp = styled.div`
-  justify-content: center;
-  display: flex;
-  overflow: hidden;
-  gap: 34px;
+
 `;
 
 const Search = styled.div`
