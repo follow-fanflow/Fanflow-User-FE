@@ -29,7 +29,7 @@ interface Props {
   setTextRadioValue: React.Dispatch<React.SetStateAction<TextRadioValueType>>;
 }
 
-export const WriteCafe = ({
+export const WriteCafe: React.FC<Props> = ({
   scripturl,
   textRadioValue,
   setTextRadioValue,
@@ -88,24 +88,53 @@ export const WriteCafe = ({
 
   const navigate = useNavigate();
 
-  // //api 코드 작성
-  const Submin = async () => {
-    if (!isLinkValid()) {
-      alert("링크 형식이 잘못되었습니다");
+  const getAddressCoordinates = async () => {
+    if (!addressInputValue) {
+      console.error("주소가 입력되지 않았습니다. ");
       return;
     }
 
     try {
-      const response = await axios.post("/api", {
-        ...cafeData,
-      });
-      alert("신청이 완료되었습니다");
-      console.log(cafeData);
+      const response = await axios.get<{ x: string; y: string }>(
+        `https://api.geocoding.example.com/?address=${encodeURIComponent(
+          addressInputValue
+        )}`
+      );
+      const { x, y } = response.data;
+      console.log("x 좌표: ", x);
+      console.log("y 좌표: ", y);
+      const updatedCafeData = ({ ...cafeData, placeX: x, placeY: y });
+      setCafeData(updatedCafeData);
+      return updatedCafeData;
+    } catch (error) {
+      console.error("주소 좌표 변환 중 에러: ", error)
+    }
+  }
+
+  const handleSubmit = async () => {
+    if (!isLinkValid()) {
+      alert("링크 형식이 잘못되었습니다");
+      return;
+    }
+  
+    try {
+      const updatedCafeData = await getAddressCoordinates();
+      if (!updatedCafeData) {
+        console.error("주소 좌표 변환이 실패했습니다.");
+        return;
+      }
+  
+      const { placeX, placeY, ...cafeDataWithoutAddress } = updatedCafeData;
+      const response = await axios.post("/api", { placeX, placeY, ...cafeDataWithoutAddress });
+      console.log(response.data); // 서버로부터의 응답 데이터 확인
+      alert("신청이 완료되었습니다"); // 신청 성공 시 알림
       navigate("/map");
     } catch (error) {
       console.error("신청 중 에러 발생: ", error);
+      alert("신청을 처리하는 도중 오류가 발생했습니다"); // 에러 발생 시 알림
     }
   };
+  
 
   return (
     <Wrapper>
@@ -122,8 +151,7 @@ export const WriteCafe = ({
               height="36px"
               placeholder="주소를 입력해주세요"
               value={addressInputValue}
-              onChange={(value) => onChangeInput(value, "place")}
-              //주소 좌표 변환 필요할듯
+              onChange={(value) => onChangeInput(value, "address")}
             />
             <Input
               width="337px"
@@ -150,7 +178,7 @@ export const WriteCafe = ({
               width={105}
               height={33}
               content="신청하기"
-              onClick={Submin}
+              onClick={handleSubmit}
             />
           </ButtonWrapper>
         </ContentWrapper>
