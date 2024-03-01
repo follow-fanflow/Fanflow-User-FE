@@ -12,7 +12,7 @@ export function Login() {
   const navigation = useNavigate();
   const [loginData, setLoginData] = useState({
     accountId: "",
-    passowrd: "",
+    password: "",
   });
 
   const onChangeInput = (
