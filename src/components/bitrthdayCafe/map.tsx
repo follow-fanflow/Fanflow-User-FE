@@ -7,10 +7,31 @@ declare global {
 }
 
 async function fetchBirthdayCafeInfo(x: number, y: number) {
-    return {
-        name: "생일카페 이름",
-        address: "주소",
-        link: "https://twitter/링크"
+    try {
+        const response = await fetch(`/place?x=${x}&y=${y}`);
+        const data = await response.json();
+
+        if (data.placeListResponse.length > 0) {
+            const birthdayCafe = data.placeListResponse[0];
+            const address = birthdayCafe.address;
+            const name = birthdayCafe.name; 
+            const link = birthdayCafe.link || "링크 없음"; 
+
+            return {
+                name: name,
+                address: address,
+                link: link
+            };
+        } else {
+            throw new Error("해당 좌표에 대한 생일카페 정보를 찾을 수 없습니다.");
+        }
+    } catch (error) {
+        console.error("생일카페 정보를 가져오는 도중 에러 발생: ", error);
+        return {
+            name: "생일카페 정보 없음",
+            address: "주소 없음",
+            link: "링크 없음"
+        };
     }
 }
 
@@ -54,11 +75,7 @@ function Map() {
                         <div style="display: flex; flex-direction: column; background-color: white; padding: 10px; border: 1px solid #D9D9D9; border-radius: 5px; gap: 4px;">
                             <div style="color: black; font-size: 17px">${info.name}</div>
                             <div style="color: black; font-size: 13px">${info.address}</div>
-                            <a href="${info.link}" style="color: #008890; text-decoration: none; font-size: 13px">https://twitter/링크</a>
-                            <div>
-                                <button style="width: 55px; height: 25px; border-radius: 7px; cursor: pointer; background-color: #F96C85; color: white; border: none; margin-right: 4px;">수락</button>
-                                <button style="width: 55px; height: 25px; cursor: pointer; background-color: white; border: 1px solid #F96C85; color: #F96C85; border-radius: 7px">거절</button>
-                            </div>
+                            <a href="${info.link}" style="color: #008890; text-decoration: none; font-size: 13px">${info.link}</a>
                         </div>
                     `
 

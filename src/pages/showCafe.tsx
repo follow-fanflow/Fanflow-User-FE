@@ -11,7 +11,6 @@ export const ShowCafe = () => {
   const suggest = ["세븐틴", "react", "ff", "avre", "ateez"];
 
   const handleGroupSelect = (selectedGroup: string) => {
-    // Perform actions when a group is selected, e.g., send a request
     console.log(`Selected Group: ${selectedGroup}`);
   };
 
@@ -28,7 +27,7 @@ export const ShowCafe = () => {
             onSelect={handleGroupSelect}
           />
         </Top>
-        <img src={textlogo} />
+        <img src={textlogo} alt="" />
       </SearchWarp>
       <ContentWrapper>
         <Map />
