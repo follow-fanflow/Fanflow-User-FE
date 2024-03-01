@@ -6,6 +6,7 @@ import banner from "../assets/imgs/배너.png";
 import BackIcon from "../assets/imgs/leftArrow.svg";
 import axios from "axios";
 import HeartImg from "../assets/imgs/checkHeart.svg";
+import Banner from "../components/common/log/banner";
 
 export const FanlogDetail = () => {
   const navigate = useNavigate();
@@ -38,9 +39,7 @@ export const FanlogDetail = () => {
     <Wrapper>
       <Header />
       <BannerWarp>
-        <img src={banner} alt="Banner 1" />
-        <img src={banner} alt="Banner 2" />
-        <img src={banner} alt="Banner 3" />
+        <Banner />
       </BannerWarp>
       <Warp>
         <Container>
@@ -85,11 +84,7 @@ const Wrapper = styled.div`
 `;
 
 const BannerWarp = styled.div`
-  width: 100%;
-  justify-content: center;
-  display: flex;
-  overflow: hidden;
-  gap: 34px;
+
 `;
 
 const Warp = styled.div`

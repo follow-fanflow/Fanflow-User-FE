@@ -20,7 +20,7 @@ export const Banner: React.FC<BannerProps> = () => {
 
     const goToNextBanner = () => {
         setCurrentBanner((currentBanner + 1) % banners.length);
-    };
+    }
 
     const startAutoSlide = () => {
         setAutoSlide(true);
@@ -68,7 +68,7 @@ const BannerWrap = styled.div`
     justify-content: center;
     overflow: hidden;
     width: 100%;
-    height: 100%;
+    height: 190px;
 `;
 
 const BannersContainer = styled.div<{ currentBanner: number }>`
@@ -76,7 +76,7 @@ const BannersContainer = styled.div<{ currentBanner: number }>`
     transition: transform 0.5s;
     transform: translateX(-${({ currentBanner }) => currentBanner * 100}%);
     width: 92%;
-    gap: 20px;
+    gap: 10px;
 `;
 
 const BannerImage = styled.img`
@@ -92,8 +92,8 @@ const Button = styled.img<{ left?: boolean; right?: boolean }>`
     transform: translateY(-50%);
     cursor: pointer;
     z-index: 1;
-    ${({ left }) => left && `left: 130px;`}
-    ${({ right }) => right && `right: 130px;`}
+    ${({ left }) => left && `left: 180px;`}
+    ${({ right }) => right && `right: 180px;`}
 `;
 
 export default Banner;
